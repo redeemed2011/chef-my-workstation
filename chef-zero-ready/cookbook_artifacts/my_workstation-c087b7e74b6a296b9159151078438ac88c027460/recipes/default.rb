@@ -34,13 +34,13 @@ unless File.exists?('/usr/local/rbenv/shims/ruby')
 end
 
 # Install vagrant.
-cmd = Chef::ShellOut.new('dpkg -s vagrant').run_command
+cmd = Mixlib::ShellOut.new('dpkg -s vagrant').run_command
 if cmd.exitstatus != 0
   include_recipe 'vagrant::default'
 end
 
 # Install python & pip.
-cmd = Chef::ShellOut.new('dpkg -s python').run_command
+cmd = Mixlib::ShellOut.new('dpkg -s python').run_command
 unless cmd.exitstatus == 0 && File.exists?('/usr/local/bin/pip')
   include_recipe 'poise-python::default'
 end
@@ -196,6 +196,7 @@ end
   iotop
   linux-headers-generic
   mesa-va-drivers mesa-vdpau-drivers xserver-xorg-video-nouveau
+  nautilus-dropbox
   nvidia-364 nvidia-prime prime-indicator
   powerline fonts-powerline
   python3-setuptools
@@ -522,6 +523,148 @@ bash 'install-arc-theme' do
   EOC
   # creates '/usr/share/themes/Arc'
   action :nothing
+end
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Yosembiance Theme
+
+# We don't want to delete the theme if we previously installed it from git.
+%w(
+  /usr/share/themes/Yosembiance-Atomic-Blue
+  /usr/share/themes/Yosembiance-Atomic-Orange
+  /usr/share/themes/Yosembiance-Kraken-Blue
+  /usr/share/themes/Yosembiance-Ubuntu-Blue
+  /usr/share/themes/Yosembiance-Ubuntu-Orange
+).each do |dir|
+  directory dir do
+    recursive true
+    action :delete
+    not_if "test -d #{ENV['HOME']}/Downloads/Yosembiance"
+  end
+end
+
+# We don't want to delete the theme's source if we've previously downloaded it.
+directory "#{ENV['HOME']}/Downloads/Yosembiance" do
+  recursive true
+  action :delete
+  not_if 'test -d /usr/share/themes/Yosembiance-Atomic-Blue'
+end
+
+git "#{ENV['HOME']}/Downloads/Yosembiance" do
+  repository 'https://github.com/bsundman/Yosembiance.git'
+  depth 1
+  reference 'master'
+  action :sync
+end
+
+%W(
+  #{ENV['HOME']}/Downloads/Yosembiance/Yosembiance-Atomic-Blue
+  #{ENV['HOME']}/Downloads/Yosembiance/Yosembiance-Atomic-Orange
+  #{ENV['HOME']}/Downloads/Yosembiance/Yosembiance-Kraken-Blue
+  #{ENV['HOME']}/Downloads/Yosembiance/Yosembiance-Ubuntu-Blue
+  #{ENV['HOME']}/Downloads/Yosembiance/Yosembiance-Ubuntu-Orange
+).each do |dir|
+  # remote_directory "/usr/share/themes/#{File.basename(dir)}" do
+  bash "install theme: #{File.basename(dir)}" do
+    code <<-EOC
+      rsync -r --inplace --links --times --delete-during --force --prune-empty-dirs \
+        "#{dir}/" "/usr/share/themes/#{File.basename(dir)}"
+    EOC
+  end
+end
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Captiva Icons
+
+# We don't want to delete the theme if we previously installed it from git.
+directory '/usr/share/icons/Captiva' do
+  recursive true
+  action :delete
+  not_if "test -d #{ENV['HOME']}/Downloads/captiva-icon-theme"
+end
+
+# We don't want to delete the theme's source if we've previously downloaded it.
+directory "#{ENV['HOME']}/Downloads/captiva-icon-theme" do
+  recursive true
+  action :delete
+  not_if 'test -d /usr/share/icons/Captiva'
+end
+
+git "#{ENV['HOME']}/Downloads/captiva-icon-theme" do
+  repository 'https://github.com/captiva-project/captiva-icon-theme.git'
+  depth 1
+  reference 'master'
+  action :sync
+end
+
+bash "install icons: Captiva" do
+  code <<-EOC
+    rsync -r --inplace --links --times --delete-during --force --prune-empty-dirs \
+      "#{ENV['HOME']}/Downloads/captiva-icon-theme/Captiva/" \
+      '/usr/share/icons/Captiva'
+  EOC
+end
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Iris Dark Icons
+
+# We don't want to delete the theme if we previously installed it from git.
+directory '/usr/share/icons/Iris-Dark' do
+  recursive true
+  action :delete
+  not_if "test -d #{ENV['HOME']}/Downloads/iris-dark"
+end
+
+# We don't want to delete the theme's source if we've previously downloaded it.
+directory "#{ENV['HOME']}/Downloads/iris-dark" do
+  recursive true
+  action :delete
+  not_if 'test -d /usr/share/icons/Iris-Dark'
+end
+
+git "#{ENV['HOME']}/Downloads/iris-dark" do
+  repository 'https://github.com/xyl0n/iris.git'
+  depth 1
+  reference 'master'
+  action :sync
+end
+
+bash "install icons: Iris" do
+  code <<-EOC
+    rsync -r --inplace --links --times --delete-during --force --prune-empty-dirs \
+      "#{ENV['HOME']}/Downloads/iris-dark/" '/usr/share/icons/Iris-Dark'
+  EOC
+end
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Iris Light Icons
+
+# We don't want to delete the theme if we previously installed it from git.
+directory '/usr/share/icons/Iris-Light' do
+  recursive true
+  action :delete
+  not_if "test -d #{ENV['HOME']}/Downloads/iris-light"
+end
+
+# We don't want to delete the theme's source if we've previously downloaded it.
+directory "#{ENV['HOME']}/Downloads/iris-light" do
+  recursive true
+  action :delete
+  not_if 'test -d /usr/share/icons/Iris-Light'
+end
+
+git "#{ENV['HOME']}/Downloads/iris-light" do
+  repository 'https://github.com/xyl0n/iris-light.git'
+  depth 1
+  reference 'master'
+  action :sync
+end
+
+bash "install icons: Iris" do
+  code <<-EOC
+    rsync -r --inplace --links --times --delete-during --force --prune-empty-dirs \
+      "#{ENV['HOME']}/Downloads/iris-light/" '/usr/share/icons/Iris-Light'
+  EOC
 end
 
 #-----------------------------------------------------------------------------------------------------------------------
