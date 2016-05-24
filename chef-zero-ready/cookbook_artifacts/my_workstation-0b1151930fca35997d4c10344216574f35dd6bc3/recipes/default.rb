@@ -189,7 +189,6 @@ end
   gimp
   git
   gksu
-  gnome-pie
   htop
   insync
   intel-microcode iucode-tool
