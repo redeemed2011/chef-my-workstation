@@ -149,6 +149,12 @@ apt_repository 'open-source-graphics-drivers' do
   key 'http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x957D2708A03A4626'
 end
 
+apt_repository 'ravefinity-project' do
+  uri 'ppa:ravefinity-project/ppa'
+  distribution node['lsb']['codename']
+  components %w(main)
+end
+
 # NVidia 364 on this repo was unstable. 361 (current at the time of this writing) was older than Canonical's repo.
 apt_repository 'graphics-drivers' do
   uri 'ppa:graphics-drivers/ppa'
@@ -183,6 +189,7 @@ end
 #   press ALT+SPACE,T); "wmctrl -r :ACTIVE: -b toggle,above"
 # * steam: usually asks the user to agree to a EULA, so likely will need to run "dpkg-reconfigure steam" after chef run.
 %w(
+  ambiance-colors
   atom
   dconf-editor
   enpass
