@@ -1,5 +1,5 @@
 {
-  "revision_id": "521411c6755dc8f31101b925144693aeab67307555e9720fff615772ea708b4f",
+  "revision_id": "f121042028f4395f4c4d1ba45fbcbe5b2959177e5aaf3b9d5caebb3a7213ab58",
   "name": "chef-my_workstation",
   "run_list": [
     "recipe[my_workstation::default]"
@@ -17,14 +17,14 @@
   "cookbook_locks": {
     "my_workstation": {
       "version": "0.1.0",
-      "identifier": "4a66862c1a08a92bab8a4b79a9c4acfff484592c",
-      "dotted_decimal_identifier": "20941874728143017.12292034458659268.190215318952236",
+      "identifier": "34a83ec2a6a685491fb1ea82e05693069e561c91",
+      "dotted_decimal_identifier": "14821686296094341.20582522303995990.161656635530385",
       "source": "cookbooks/my_workstation",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:redeemed2011/chef-my-workstation.git",
-        "revision": "3a377e31a103b93a4d27eaa3e15b82975433ebe4",
+        "revision": "1c8aae623bac23cac8bf87c83c52eaab35f64f07",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [
@@ -236,14 +236,14 @@
       }
     },
     "windows": {
-      "version": "1.41.0",
-      "identifier": "ec31917dbcc64bcf4eb78a428d3259407580bf0f",
-      "dotted_decimal_identifier": "66482595453257291.58351870384704818.98133384150799",
-      "cache_key": "windows-1.41.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/1.41.0/download",
+      "version": "1.42.0",
+      "identifier": "02bf10d06ed96267158d2d35b10e6c8c6daef63f",
+      "dotted_decimal_identifier": "773028890728802.29015618694263054.119350391404095",
+      "cache_key": "windows-1.42.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/1.42.0/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/1.41.0/download",
-        "version": "1.41.0"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/1.42.0/download",
+        "version": "1.42.0"
       }
     },
     "chef_handler": {
@@ -344,7 +344,7 @@
       ],
       [
         "windows",
-        "= 1.41.0"
+        "= 1.42.0"
       ],
       [
         "chef_handler",
@@ -492,7 +492,7 @@
       "dmg (2.4.0)": [
 
       ],
-      "windows (1.41.0)": [
+      "windows (1.42.0)": [
         [
           "chef_handler",
           ">= 0.0.0"
