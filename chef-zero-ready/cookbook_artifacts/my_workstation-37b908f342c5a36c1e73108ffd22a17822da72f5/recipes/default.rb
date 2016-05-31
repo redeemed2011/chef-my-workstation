@@ -161,6 +161,8 @@ apt_repository 'ubuntu-wine' do
   components %w(main)
 end
 
+wine:i386
+
 # NVidia 364 on this repo was unstable. 361 (current at the time of this writing) was older than Canonical's repo.
 apt_repository 'graphics-drivers' do
   uri 'ppa:graphics-drivers/ppa'
@@ -226,7 +228,7 @@ end
   xdman
   y-ppa-manager
   ubuntu-make
-  wine1.8 winetricks
+  playonlinux
 ).each do |pkg|
   # apt-fast
   # arc-theme ceti-2-theme vertex-theme
