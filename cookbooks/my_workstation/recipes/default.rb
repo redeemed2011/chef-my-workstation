@@ -143,6 +143,11 @@ apt_repository 'noobslab-icons' do
   distribution node['lsb']['codename']
 end
 
+apt_repository 'noobslab-icons2' do
+  uri 'ppa:noobslab/icons2'
+  distribution node['lsb']['codename']
+end
+
 apt_repository 'open-source-graphics-drivers' do
   uri 'ppa:oibaf/graphics-drivers'
   distribution node['lsb']['codename']
@@ -160,8 +165,6 @@ apt_repository 'ubuntu-wine' do
   distribution node['lsb']['codename']
   components %w(main)
 end
-
-wine:i386
 
 # NVidia 364 on this repo was unstable. 361 (current at the time of this writing) was older than Canonical's repo.
 apt_repository 'graphics-drivers' do
@@ -197,7 +200,7 @@ end
 #   press ALT+SPACE,T); "wmctrl -r :ACTIVE: -b toggle,above"
 # * steam: usually asks the user to agree to a EULA, so likely will need to run "dpkg-reconfigure steam" after chef run.
 %w(
-  vibrancy-colors
+  vibrancy-colors antu-universal-icons
   atom
   dconf-editor
   enpass
