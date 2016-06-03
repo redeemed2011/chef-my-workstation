@@ -251,7 +251,7 @@ end
   directory dir do
     recursive true
     action :delete
-    not_if "test -d #{ENV['HOME']}/Downloads/vertex-theme"
+    not_if 'test -d /tmp/vertex-theme'
   end
 end
 
@@ -274,8 +274,8 @@ end
 end
 
 # We don't want to delete the theme's source if we've previously downloaded it.
-%W(
-  #{ENV['HOME']}/Downloads/vertex-theme
+%w(
+  /tmp/vertex-theme
 ).each do |dir|
   directory dir do
     recursive true
@@ -284,7 +284,7 @@ end
   end
 end
 
-git "#{ENV['HOME']}/Downloads/vertex-theme" do
+git '/tmp/vertex-theme' do
   repository 'https://github.com/horst3180/vertex-theme'
   depth 1
   reference 'master'
@@ -293,7 +293,7 @@ git "#{ENV['HOME']}/Downloads/vertex-theme" do
 end
 
 bash 'install-vertex-theme' do
-  cwd "#{ENV['HOME']}/Downloads/vertex-theme"
+  cwd "/tmp/vertex-theme"
   code <<-EOC
     ./autogen.sh --prefix=/usr
     sudo make install
@@ -313,7 +313,7 @@ end
   directory dir do
     recursive true
     action :delete
-    not_if "test -d #{ENV['HOME']}/Downloads/ceti-2-theme"
+    not_if 'test -d /tmp/ceti-2-theme'
   end
 end
 
@@ -328,8 +328,8 @@ end
 end
 
 # We don't want to delete the theme's source if we've previously downloaded it.
-%W(
-  #{ENV['HOME']}/Downloads/ceti-2-theme
+%w(
+  /tmp/ceti-2-theme
 ).each do |dir|
   directory dir do
     recursive true
@@ -338,7 +338,7 @@ end
   end
 end
 
-git "#{ENV['HOME']}/Downloads/ceti-2-theme" do
+git '/tmp/ceti-2-theme' do
   repository 'https://github.com/horst3180/ceti-2-theme'
   depth 1
   reference 'master'
@@ -347,7 +347,7 @@ git "#{ENV['HOME']}/Downloads/ceti-2-theme" do
 end
 
 bash 'install-ceti-2-theme' do
-  cwd "#{ENV['HOME']}/Downloads/ceti-2-theme"
+  cwd '/tmp/ceti-2-theme'
   code <<-EOC
     set +e # ignore errors
     ./autogen.sh --prefix=/usr
@@ -369,7 +369,7 @@ end
   directory dir do
     recursive true
     action :delete
-    not_if "test -d #{ENV['HOME']}/Downloads/arc-theme"
+    not_if 'test -d /tmp/arc-theme'
   end
 end
 
@@ -389,7 +389,7 @@ end
 
 # We don't want to delete the theme's source if we've previously downloaded it.
 %W(
-  #{ENV['HOME']}/Downloads/arc-theme
+  /tmp/arc-theme
 ).each do |dir|
   directory dir do
     recursive true
@@ -398,7 +398,7 @@ end
   end
 end
 
-git "#{ENV['HOME']}/Downloads/arc-theme" do
+git '/tmp/arc-theme' do
   repository 'https://github.com/horst3180/arc-theme'
   depth 1
   reference 'master'
@@ -407,7 +407,7 @@ git "#{ENV['HOME']}/Downloads/arc-theme" do
 end
 
 bash 'install-arc-theme' do
-  cwd "#{ENV['HOME']}/Downloads/arc-theme"
+  cwd '/tmp/arc-theme'
   code <<-EOC
     ./autogen.sh --prefix=/usr
     sudo make install
@@ -430,30 +430,30 @@ end
   directory dir do
     recursive true
     action :delete
-    not_if "test -d #{ENV['HOME']}/Downloads/Yosembiance"
+    not_if "test -d /tmp/Yosembiance"
   end
 end
 
 # We don't want to delete the theme's source if we've previously downloaded it.
-directory "#{ENV['HOME']}/Downloads/Yosembiance" do
+directory "/tmp/Yosembiance" do
   recursive true
   action :delete
   not_if 'test -d /usr/share/themes/Yosembiance-Atomic-Blue'
 end
 
-git "#{ENV['HOME']}/Downloads/Yosembiance" do
+git '/tmp/Yosembiance' do
   repository 'https://github.com/bsundman/Yosembiance.git'
   depth 1
   reference 'master'
   action :sync
 end
 
-%W(
-  #{ENV['HOME']}/Downloads/Yosembiance/Yosembiance-Atomic-Blue
-  #{ENV['HOME']}/Downloads/Yosembiance/Yosembiance-Atomic-Orange
-  #{ENV['HOME']}/Downloads/Yosembiance/Yosembiance-Kraken-Blue
-  #{ENV['HOME']}/Downloads/Yosembiance/Yosembiance-Ubuntu-Blue
-  #{ENV['HOME']}/Downloads/Yosembiance/Yosembiance-Ubuntu-Orange
+%w(
+  /tmp/Yosembiance/Yosembiance-Atomic-Blue
+  /tmp/Yosembiance/Yosembiance-Atomic-Orange
+  /tmp/Yosembiance/Yosembiance-Kraken-Blue
+  /tmp/Yosembiance/Yosembiance-Ubuntu-Blue
+  /tmp/Yosembiance/Yosembiance-Ubuntu-Orange
 ).each do |dir|
   # remote_directory "/usr/share/themes/#{File.basename(dir)}" do
   bash "install theme: #{File.basename(dir)}" do
@@ -471,27 +471,27 @@ end
 directory '/usr/share/icons/Captiva' do
   recursive true
   action :delete
-  not_if "test -d #{ENV['HOME']}/Downloads/captiva-icon-theme"
+  not_if 'test -d /tmp/captiva-icon-theme'
 end
 
 # We don't want to delete the theme's source if we've previously downloaded it.
-directory "#{ENV['HOME']}/Downloads/captiva-icon-theme" do
+directory '/tmp/captiva-icon-theme' do
   recursive true
   action :delete
   not_if 'test -d /usr/share/icons/Captiva'
 end
 
-git "#{ENV['HOME']}/Downloads/captiva-icon-theme" do
+git '/tmp/captiva-icon-theme' do
   repository 'https://github.com/captiva-project/captiva-icon-theme.git'
   depth 1
   reference 'master'
   action :sync
 end
 
-bash "install icons: Captiva" do
+bash 'install icons: Captiva' do
   code <<-EOC
     rsync -r --inplace --links --times --delete-during --force --prune-empty-dirs \
-      "#{ENV['HOME']}/Downloads/captiva-icon-theme/Captiva/" \
+      "/tmp/captiva-icon-theme/Captiva/" \
       '/usr/share/icons/Captiva'
   EOC
 end
