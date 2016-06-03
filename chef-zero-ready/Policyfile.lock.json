@@ -1,30 +1,36 @@
 {
-  "revision_id": "a5c5c29f3e5e82f98d416950855abb7008df7073ac017ef35eeb8dfe48e14a44",
+  "revision_id": "8e5654055a10bfdb5720c00ba243a9f8bc6ccd0914a4d88965801fb9ae745553",
   "name": "chef-my_workstation",
   "run_list": [
     "recipe[my_workstation::default]"
   ],
   "named_run_lists": {
+    "default_workstation": [
+      "recipe[my_workstation::default]",
+      "recipe[my_workstation::default_desktop]"
+    ],
     "gnome_workstation": [
       "recipe[my_workstation::gnome_desktop]",
-      "recipe[my_workstation::default]"
+      "recipe[my_workstation::default]",
+      "recipe[my_workstation::default_desktop]"
     ],
     "unity_workstation": [
       "recipe[my_workstation::unity_desktop]",
-      "recipe[my_workstation::default]"
+      "recipe[my_workstation::default]",
+      "recipe[my_workstation::default_desktop]"
     ]
   },
   "cookbook_locks": {
     "my_workstation": {
       "version": "0.1.0",
-      "identifier": "4d5f56db3bbc8954fac57da4938db50b4214dcdb",
-      "dotted_decimal_identifier": "21778399856671881.23919624167134093.199059957931227",
+      "identifier": "4913e269c6977e666422ac3d74efdc39a52cafc6",
+      "dotted_decimal_identifier": "20569536458037118.28820547705861359.242140142415814",
       "source": "cookbooks/my_workstation",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:redeemed2011/chef-my-workstation.git",
-        "revision": "b2152d0350af6c153c01ac70e21bb948dfbf191a",
+        "revision": "12eacecb58ebf16264f9a323bc86d8c29311bb57",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [
@@ -49,25 +55,14 @@
       }
     },
     "apt": {
-      "version": "3.0.0",
-      "identifier": "ac1a47456c19b9b278abed0ac5e51b05d27f2082",
-      "dotted_decimal_identifier": "48442589403945401.50235225666143717.29711820333186",
-      "cache_key": "apt-3.0.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/3.0.0/download",
+      "version": "4.0.0",
+      "identifier": "8fcf7e803c6505b4a25b4bc7606838faa0d4ecf0",
+      "dotted_decimal_identifier": "40479063893894405.50844008804999272.62649091288304",
+      "cache_key": "apt-4.0.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/4.0.0/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/3.0.0/download",
-        "version": "3.0.0"
-      }
-    },
-    "docker": {
-      "version": "2.7.1",
-      "identifier": "d059ff257591ee804d38a3ba08d0129d3d805801",
-      "dotted_decimal_identifier": "58645747535811054.36113702679349456.20466550986753",
-      "cache_key": "docker-2.7.1-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/2.7.1/download",
-      "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/2.7.1/download",
-        "version": "2.7.1"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/4.0.0/download",
+        "version": "4.0.0"
       }
     },
     "compat_resource": {
@@ -79,6 +74,17 @@
       "source_options": {
         "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.10.4/download",
         "version": "12.10.4"
+      }
+    },
+    "docker": {
+      "version": "2.7.1",
+      "identifier": "d059ff257591ee804d38a3ba08d0129d3d805801",
+      "dotted_decimal_identifier": "58645747535811054.36113702679349456.20466550986753",
+      "cache_key": "docker-2.7.1-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/2.7.1/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/2.7.1/download",
+        "version": "2.7.1"
       }
     },
     "openssh": {
@@ -276,15 +282,15 @@
       ],
       [
         "apt",
-        "= 3.0.0"
-      ],
-      [
-        "docker",
-        "= 2.7.1"
+        "= 4.0.0"
       ],
       [
         "compat_resource",
         "= 12.10.4"
+      ],
+      [
+        "docker",
+        "= 2.7.1"
       ],
       [
         "openssh",
@@ -394,7 +400,13 @@
           "~> 0.5.0"
         ]
       ],
-      "apt (3.0.0)": [
+      "apt (4.0.0)": [
+        [
+          "compat_resource",
+          ">= 0.0.0"
+        ]
+      ],
+      "compat_resource (12.10.4)": [
 
       ],
       "docker (2.7.1)": [
@@ -402,9 +414,6 @@
           "compat_resource",
           ">= 12.9.0"
         ]
-      ],
-      "compat_resource (12.10.4)": [
-
       ],
       "openssh (2.0.0)": [
         [

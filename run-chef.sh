@@ -19,4 +19,5 @@ cd chef-zero-ready
 
 sudo chown -R "${CURRENT_USER}:${CURRENT_USER}" .
 
-sudo -E chef-client -z #-l info
+# sudo -E chef-client -z #-l info
+sudo -E chef-client -z -n 'default_workstation' #-l info

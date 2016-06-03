@@ -12,8 +12,9 @@ default_source :supermarket
 # Specify a named run-list to be used as an alternative to the override run-list. This setting should be used carefully
 # and for specific use cases, like running a small set of recipes to quickly converge configuration for a single
 # application on a host or for one-time setup tasks.
-named_run_list 'gnome_workstation', 'my_workstation::gnome_desktop', 'my_workstation::default'
-named_run_list 'unity_workstation', 'my_workstation::unity_desktop', 'my_workstation::default'
+named_run_list 'default_workstation', 'my_workstation::default', 'my_workstation::default_desktop'
+named_run_list 'gnome_workstation', 'my_workstation::gnome_desktop', 'my_workstation::default', 'my_workstation::default_desktop'
+named_run_list 'unity_workstation', 'my_workstation::unity_desktop', 'my_workstation::default', 'my_workstation::default_desktop'
 
 # run_list: chef-client will run these recipes in the order specified.
 run_list 'my_workstation::default'
