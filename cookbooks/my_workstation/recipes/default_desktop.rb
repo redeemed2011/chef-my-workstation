@@ -161,7 +161,7 @@ end
   wmctrl
   xdman
   y-ppa-manager
-  playonlinux
+  playonlinux wine winetricks
 ).each do |pkg|
   # apt-fast
   # arc-theme ceti-2-theme vertex-theme
