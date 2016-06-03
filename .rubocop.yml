@@ -1,36 +1,8 @@
 # This is the default configuration file. Enabling and disabling is configured
 # in separate files. This file adds all other parameters apart from Enabled.
 
-inherit_from:
-  - enabled.yml
-  - disabled.yml
-
 # Common configuration.
 AllCops:
-  # Include common Ruby source files.
-  Include:
-    - '**/*.gemspec'
-    - '**/*.podspec'
-    - '**/*.jbuilder'
-    - '**/*.rake'
-    - '**/*.opal'
-    - '**/config.ru'
-    - '**/Gemfile'
-    - '**/Rakefile'
-    - '**/Capfile'
-    - '**/Guardfile'
-    - '**/Podfile'
-    - '**/Thorfile'
-    - '**/Vagrantfile'
-    - '**/Berksfile'
-    - '**/Cheffile'
-    - '**/Vagabondfile'
-    - '**/Fastfile'
-    - '**/*Fastfile'
-  Exclude:
-    - 'vendor/**/*'
-  # Default formatter will be used if no -f/--format option is given.
-  DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
   # by overriding DisplayCopNames, or by giving the -D/--display-cop-names
   # option.
@@ -54,17 +26,6 @@ AllCops:
   # opt-out. Note that when DisabledByDefault is true, cops in user
   # configuration will be enabled even if they don't set the Enabled parameter.
   DisabledByDefault: false
-  # Enables the result cache if true. Can be overridden by the --cache command
-  # line option.
-  UseCache: true
-  # Threshold for how many files can be stored in the result cache before some
-  # of the files are automatically removed.
-  MaxFilesInCache: 20000
-  # The cache will be stored in "rubocop_cache" under this directory. The name
-  # "/tmp" is special and will be converted to the system temporary directory,
-  # which is "/tmp" on Unix-like systems, but could be something else on other
-  # systems.
-  CacheRootDirectory: /tmp
   # What version of the Ruby interpreter is the inspected code intended to
   # run on? (If there is more than one, set this to the lowest version.)
   TargetRubyVersion: 2.0
@@ -515,17 +476,6 @@ Style/GlobalVars:
 Style/GuardClause:
   MinBodyLength: 1
 
-Style/HashSyntax:
-  EnforcedStyle: ruby19
-  SupportedStyles:
-    - ruby19
-    - ruby19_no_mixed_keys
-    - hash_rockets
-  # Force hashes that have a symbol value to use hash rockets
-  UseHashRocketsWithSymbolValues: false
-  # Do not suggest { a?: 1 } over { :a? => 1 } in ruby19 style
-  PreferHashRocketsForNonAlnumEndingSymbols: false
-
 Style/IfUnlessModifier:
   MaxLineLength: 80
 
@@ -641,12 +591,6 @@ Style/MethodName:
   SupportedStyles:
     - snake_case
     - camelCase
-
-Style/ModuleFunction:
-  EnforcedStyle: module_function
-  SupportedStyles:
-    - module_function
-    - extend_self
 
 Style/MultilineArrayBraceLayout:
   EnforcedStyle: symmetrical
@@ -1022,13 +966,6 @@ Style/WordArray:
   # The regular expression WordRegex decides what is considered a word.
   WordRegex: !ruby/regexp '/\A[\p{Word}\n\t]+\z/'
 
-# RequestReferer enforces consistent request.referer usage.
-Style/RequestReferer:
-  EnforcedStyle: referer
-  SupportedStyles:
-    - referer
-    - referrer
-
 ##################### Metrics ##################################
 
 Metrics/AbcSize:
@@ -1141,8 +1078,6 @@ Rails/ActionFilter:
   SupportedStyles:
     - action
     - filter
-  Include:
-    - app/controllers/**/*.rb
 
 Rails/Date:
   # The value `strict` disallows usage of `Date.today`, `Date.current`,
@@ -1155,33 +1090,6 @@ Rails/Date:
     - strict
     - flexible
 
-Rails/FindBy:
-  Include:
-    - app/models/**/*.rb
-
-Rails/FindEach:
-  Include:
-    - app/models/**/*.rb
-
-Rails/HasAndBelongsToMany:
-  Include:
-    - app/models/**/*.rb
-
-Rails/Output:
-  Include:
-    - app/**/*.rb
-    - config/**/*.rb
-    - db/**/*.rb
-    - lib/**/*.rb
-
-Rails/ReadWriteAttribute:
-  Include:
-    - app/models/**/*.rb
-
-Rails/ScopeArgs:
-  Include:
-    - app/models/**/*.rb
-
 Rails/TimeZone:
   # The value `strict` means that `Time` should be used with `zone`.
   # The value `flexible` allows usage of `in_time_zone` instead of `zone`.
@@ -1189,7 +1097,3 @@ Rails/TimeZone:
   SupportedStyles:
     - strict
     - flexible
-
-Rails/Validation:
-  Include:
-    - app/models/**/*.rb
