@@ -1,5 +1,5 @@
 {
-  "revision_id": "ad47d122d0c7f10dfa1c05b87e0796fc2542625908c7395dab70bce31068218a",
+  "revision_id": "d0786a7e7e9b90f023d43f55e7ce3f4a55762727c8ac07479819017458d2e812",
   "name": "chef-my_workstation",
   "run_list": [
     "recipe[my_workstation::default]"
@@ -23,14 +23,14 @@
   "cookbook_locks": {
     "my_workstation": {
       "version": "0.1.0",
-      "identifier": "0d1f2dd4ff8ae5d8d2488142a54215241e677c34",
-      "dotted_decimal_identifier": "3693456404744933.61029803817608514.23244873104436",
+      "identifier": "ac6f59bb163bcfacfa89c582cb2132c8f09e99b7",
+      "dotted_decimal_identifier": "48536127175801807.48689165625379617.55838611773879",
       "source": "cookbooks/my_workstation",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:redeemed2011/chef-my-workstation.git",
-        "revision": "35dc537e45a55d2741cbabad361ab274ee278249",
+        "revision": "b529d749a2a8c5f5be756f56928e77dfd3c111a2",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [

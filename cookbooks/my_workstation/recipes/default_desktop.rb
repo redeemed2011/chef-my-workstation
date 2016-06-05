@@ -152,7 +152,6 @@ end
   steam
   sublime-text-installer
   synaptic
-  variety
   vertex-icons gtk2-engines-pixbuf libgtk-3-dev autoconf automake gnome-themes-standard
   virtualbox-5.0
   vlc browser-plugin-vlc
@@ -635,27 +634,6 @@ end
 
 #-----------------------------------------------------------------------------------------------------------------------
 # General configuration changes
-
-%W(
-  #{ENV['HOME']}/.config/variety/
-).each do |dir|
-  directory dir do
-    owner CURRENT_USER
-    group CURRENT_USER
-    recursive true
-    action :create
-  end
-end
-
-# "Variety" wallpaper changer util's config.
-template "#{ENV['HOME']}/.config/variety/variety.conf" do
-  source '.config/variety/variety.conf.erb'
-  owner CURRENT_USER
-  group CURRENT_USER
-  mode '0644'
-  variables(custom_folder: "#{ENV['HOME']}/Pictures")
-  not_if "test -e #{ENV['HOME']}/.config/variety/variety.conf"
-end
 
 bash 'disable touchpad when external mouse is present' do
   code <<-EOH
