@@ -35,9 +35,9 @@
   "recipes": {
 
   },
-  "version": "12.10.5",
-  "source_url": "https://github.com/chef-cookbooks/compat_resource",
-  "issues_url": "https://github.com/chef-cookbooks/compat_resource/issues",
+  "version": "12.10.6",
+  "source_url": "",
+  "issues_url": "",
   "privacy": false,
   "chef_versions": [
 

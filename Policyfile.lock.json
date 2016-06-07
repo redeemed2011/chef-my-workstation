@@ -1,5 +1,5 @@
 {
-  "revision_id": "d0786a7e7e9b90f023d43f55e7ce3f4a55762727c8ac07479819017458d2e812",
+  "revision_id": "4bfc9fb67e5ba110b518c4fbb301ef17ec02b10cb655c3a26e476f1235271b48",
   "name": "chef-my_workstation",
   "run_list": [
     "recipe[my_workstation::default]"
@@ -23,14 +23,14 @@
   "cookbook_locks": {
     "my_workstation": {
       "version": "0.1.0",
-      "identifier": "ac6f59bb163bcfacfa89c582cb2132c8f09e99b7",
-      "dotted_decimal_identifier": "48536127175801807.48689165625379617.55838611773879",
+      "identifier": "0d084eaa11168fcf86c93be73bc68c6ea65486b9",
+      "dotted_decimal_identifier": "3668308650956431.58413519030664134.154406864848569",
       "source": "cookbooks/my_workstation",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:redeemed2011/chef-my-workstation.git",
-        "revision": "b529d749a2a8c5f5be756f56928e77dfd3c111a2",
+        "revision": "45c2310efaf114d10159a0efdbe9e4ceb3347eaa",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [
@@ -66,14 +66,14 @@
       }
     },
     "compat_resource": {
-      "version": "12.10.5",
-      "identifier": "b1301734c4c0c5b160eca3a249a2b09e0ca760dc",
-      "dotted_decimal_identifier": "49873947105476805.49927640351656354.194192863617244",
-      "cache_key": "compat_resource-12.10.5-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.10.5/download",
+      "version": "12.10.6",
+      "identifier": "e022a20bc148202970f79357916050efa2193cff",
+      "dotted_decimal_identifier": "63088474160449568.11664682676359520.88990146968831",
+      "cache_key": "compat_resource-12.10.6-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.10.6/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.10.5/download",
-        "version": "12.10.5"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.10.6/download",
+        "version": "12.10.6"
       }
     },
     "docker": {
@@ -286,7 +286,7 @@
       ],
       [
         "compat_resource",
-        "= 12.10.5"
+        "= 12.10.6"
       ],
       [
         "docker",
@@ -406,7 +406,7 @@
           ">= 0.0.0"
         ]
       ],
-      "compat_resource (12.10.5)": [
+      "compat_resource (12.10.6)": [
 
       ],
       "docker (2.7.1)": [

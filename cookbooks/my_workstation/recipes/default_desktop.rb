@@ -58,18 +58,14 @@ apt_repository 'virtualbox' do
   trusted true
 end
 
-# # Some of these themes are not working in Gnome 3.20 at the time of this writing, so not using this ppa.
-# apt_repository 'horst3180' do
-#   uri 'http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/'
-#   distribution '/'
-#   components []
-#   key 'http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key'
-#   trusted true
-# # echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' | \
-# #   sudo tee /etc/apt/sources.list.d/vertex-and-arc-theme.list
-# # wget -q http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key -O- | \
-# #   sudo apt-key add -
-# end
+# Some of these themes are not working in Gnome 3.20 at the time of this writing, so not using this ppa.
+apt_repository 'horst3180' do
+  uri 'http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/'
+  distribution '/'
+  components []
+  key 'http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key'
+  trusted true
+end
 
 apt_repository 'noobslab-apps' do
   uri 'ppa:noobslab/apps'
@@ -90,6 +86,13 @@ apt_repository 'open-source-graphics-drivers' do
   uri 'ppa:oibaf/graphics-drivers'
   distribution node['lsb']['codename']
   key 'http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x957D2708A03A4626'
+end
+
+# Repo for 'screencloud'.
+apt_repository 'screencloud' do
+  uri 'http://download.opensuse.org/repositories/home:/olav-st/xUbuntu_15.10/'
+  distribution '/'
+  key 'http://download.opensuse.org/repositories/home:/olav-st/xUbuntu_15.10/Release.key'
 end
 
 # Vibrancy colors icons.
@@ -138,6 +141,7 @@ end
 # * wmctrl: allows one to do nifty things like make windows stay always on top via custom hotkeys (or one could just
 #   press ALT+SPACE,T); "wmctrl -r :ACTIVE: -b toggle,above"
 # * steam: usually asks the user to agree to a EULA, so likely will need to run "dpkg-reconfigure steam" after chef run.
+# * screencloud: screenshot util.
 %w(
   vibrancy-colors antu-universal-icons
   atom
@@ -158,9 +162,10 @@ end
   wmctrl
   y-ppa-manager
   playonlinux wine winetricks
+  arc-theme ceti-2-theme vertex-theme arc-icons
+  screencloud
 ).each do |pkg|
   # apt-fast
-  # arc-theme ceti-2-theme vertex-theme
   package pkg do
     action :install
   end
@@ -233,184 +238,184 @@ dpkg_package 'gitkraken' do
   action :install
 end
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Vertex Theme
+# #-----------------------------------------------------------------------------------------------------------------------
+# # Vertex Theme
+#
+# # We don't want to delete the theme if we previously installed it from git.
+# %w(
+#   /usr/share/themes/Vertex
+#   /usr/share/themes/Vertex-Dark
+#   /usr/share/themes/Vertex-Light
+#   /usr/share/themes/Vertex-Gnome-Shell*
+#   /usr/share/themes/Vertex-Cinnamon
+# ).each do |dir|
+#   directory dir do
+#     recursive true
+#     action :delete
+#     not_if 'test -d /tmp/vertex-theme'
+#   end
+# end
+#
+# %W(
+#   #{ENV['HOME']}/.local/share/themes/Vertex
+#   #{ENV['HOME']}/.local/share/themes/Vertex-Dark
+#   #{ENV['HOME']}/.local/share/themes/Vertex-Light
+#   #{ENV['HOME']}/.local/share/themes/Vertex-Gnome-Shell*
+#   #{ENV['HOME']}/.local/share/themes/Vertex-Cinnamon
+#   #{ENV['HOME']}/.themes/Vertex
+#   #{ENV['HOME']}/.themes/Vertex-Dark
+#   #{ENV['HOME']}/.themes/Vertex-Light
+#   #{ENV['HOME']}/.themes/Vertex-Gnome-Shell*
+#   #{ENV['HOME']}/.themes/Vertex-Cinnamon
+# ).each do |dir|
+#   directory dir do
+#     recursive true
+#     action :delete
+#   end
+# end
+#
+# # We don't want to delete the theme's source if we've previously downloaded it.
+# %w(
+#   /tmp/vertex-theme
+# ).each do |dir|
+#   directory dir do
+#     recursive true
+#     action :delete
+#     not_if 'test -d /usr/share/themes/Vertex'
+#   end
+# end
+#
+# git '/tmp/vertex-theme' do
+#   repository 'https://github.com/horst3180/vertex-theme'
+#   depth 1
+#   reference 'master'
+#   action :sync
+#   notifies :run, 'bash[install-vertex-theme]'
+# end
+#
+# bash 'install-vertex-theme' do
+#   cwd '/tmp/vertex-theme'
+#   code <<-EOC
+#     ./autogen.sh --prefix=/usr
+#     sudo make install
+#   EOC
+#   # creates '/usr/share/themes/Vertex'
+#   action :nothing
+# end
 
-# We don't want to delete the theme if we previously installed it from git.
-%w(
-  /usr/share/themes/Vertex
-  /usr/share/themes/Vertex-Dark
-  /usr/share/themes/Vertex-Light
-  /usr/share/themes/Vertex-Gnome-Shell*
-  /usr/share/themes/Vertex-Cinnamon
-).each do |dir|
-  directory dir do
-    recursive true
-    action :delete
-    not_if 'test -d /tmp/vertex-theme'
-  end
-end
+# #-----------------------------------------------------------------------------------------------------------------------
+# # Ceti 2 Theme
+# # NOTE: Will error on Gnome 3.20 at the time of this writing, thus no longer attempting to install.
+#
+# # We don't want to delete the theme if we previously installed it from git.
+# %w(
+#   /usr/share/themes/Ceti-2
+# ).each do |dir|
+#   directory dir do
+#     recursive true
+#     action :delete
+#     not_if 'test -d /tmp/ceti-2-theme'
+#   end
+# end
+#
+# %W(
+#   #{ENV['HOME']}/.local/share/themes/Ceti-2
+#   #{ENV['HOME']}/.themes/Ceti-2
+# ).each do |dir|
+#   directory dir do
+#     recursive true
+#     action :delete
+#   end
+# end
+#
+# # We don't want to delete the theme's source if we've previously downloaded it.
+# %w(
+#   /tmp/ceti-2-theme
+# ).each do |dir|
+#   directory dir do
+#     recursive true
+#     action :delete
+#     not_if 'test -d /usr/share/themes/Vertex'
+#   end
+# end
+#
+# git '/tmp/ceti-2-theme' do
+#   repository 'https://github.com/horst3180/ceti-2-theme'
+#   depth 1
+#   reference 'master'
+#   action :sync
+#   notifies :run, 'bash[install-ceti-2-theme]'
+# end
+#
+# bash 'install-ceti-2-theme' do
+#   cwd '/tmp/ceti-2-theme'
+#   code <<-EOC
+#     set +e # ignore errors
+#     ./autogen.sh --prefix=/usr
+#     sudo make install
+#   EOC
+#   # creates '/usr/share/themes/Ceti-2'
+#   action :nothing
+# end
 
-%W(
-  #{ENV['HOME']}/.local/share/themes/Vertex
-  #{ENV['HOME']}/.local/share/themes/Vertex-Dark
-  #{ENV['HOME']}/.local/share/themes/Vertex-Light
-  #{ENV['HOME']}/.local/share/themes/Vertex-Gnome-Shell*
-  #{ENV['HOME']}/.local/share/themes/Vertex-Cinnamon
-  #{ENV['HOME']}/.themes/Vertex
-  #{ENV['HOME']}/.themes/Vertex-Dark
-  #{ENV['HOME']}/.themes/Vertex-Light
-  #{ENV['HOME']}/.themes/Vertex-Gnome-Shell*
-  #{ENV['HOME']}/.themes/Vertex-Cinnamon
-).each do |dir|
-  directory dir do
-    recursive true
-    action :delete
-  end
-end
-
-# We don't want to delete the theme's source if we've previously downloaded it.
-%w(
-  /tmp/vertex-theme
-).each do |dir|
-  directory dir do
-    recursive true
-    action :delete
-    not_if 'test -d /usr/share/themes/Vertex'
-  end
-end
-
-git '/tmp/vertex-theme' do
-  repository 'https://github.com/horst3180/vertex-theme'
-  depth 1
-  reference 'master'
-  action :sync
-  notifies :run, 'bash[install-vertex-theme]'
-end
-
-bash 'install-vertex-theme' do
-  cwd '/tmp/vertex-theme'
-  code <<-EOC
-    ./autogen.sh --prefix=/usr
-    sudo make install
-  EOC
-  # creates '/usr/share/themes/Vertex'
-  action :nothing
-end
-
-#-----------------------------------------------------------------------------------------------------------------------
-# Ceti 2 Theme
-# NOTE: Will error on Gnome 3.20 at the time of this writing, thus no longer attempting to install.
-
-# We don't want to delete the theme if we previously installed it from git.
-%w(
-  /usr/share/themes/Ceti-2
-).each do |dir|
-  directory dir do
-    recursive true
-    action :delete
-    not_if 'test -d /tmp/ceti-2-theme'
-  end
-end
-
-%W(
-  #{ENV['HOME']}/.local/share/themes/Ceti-2
-  #{ENV['HOME']}/.themes/Ceti-2
-).each do |dir|
-  directory dir do
-    recursive true
-    action :delete
-  end
-end
-
-# We don't want to delete the theme's source if we've previously downloaded it.
-%w(
-  /tmp/ceti-2-theme
-).each do |dir|
-  directory dir do
-    recursive true
-    action :delete
-    not_if 'test -d /usr/share/themes/Vertex'
-  end
-end
-
-git '/tmp/ceti-2-theme' do
-  repository 'https://github.com/horst3180/ceti-2-theme'
-  depth 1
-  reference 'master'
-  action :sync
-  notifies :run, 'bash[install-ceti-2-theme]'
-end
-
-bash 'install-ceti-2-theme' do
-  cwd '/tmp/ceti-2-theme'
-  code <<-EOC
-    set +e # ignore errors
-    ./autogen.sh --prefix=/usr
-    sudo make install
-  EOC
-  # creates '/usr/share/themes/Ceti-2'
-  action :nothing
-end
-
-#-----------------------------------------------------------------------------------------------------------------------
-# Arc Theme
-
-# We don't want to delete the theme if we previously installed it from git.
-%w(
-  /usr/share/themes/Arc
-  /usr/share/themes/Arc-Dark
-  /usr/share/themes/Arc-Darker
-).each do |dir|
-  directory dir do
-    recursive true
-    action :delete
-    not_if 'test -d /tmp/arc-theme'
-  end
-end
-
-%W(
-  #{ENV['HOME']}/.local/share/themes/Arc
-  #{ENV['HOME']}/.local/share/themes/Arc-Dark
-  #{ENV['HOME']}/.local/share/themes/Arc-Darker
-  #{ENV['HOME']}/.themes/Arc
-  #{ENV['HOME']}/.themes/Arc-Dark
-  #{ENV['HOME']}/.themes/Arc-Darker
-).each do |dir|
-  directory dir do
-    recursive true
-    action :delete
-  end
-end
-
-# We don't want to delete the theme's source if we've previously downloaded it.
-%w(
-  /tmp/arc-theme
-).each do |dir|
-  directory dir do
-    recursive true
-    action :delete
-    not_if 'test -d /usr/share/themes/Arc'
-  end
-end
-
-git '/tmp/arc-theme' do
-  repository 'https://github.com/horst3180/arc-theme'
-  depth 1
-  reference 'master'
-  action :sync
-  notifies :run, 'bash[install-arc-theme]'
-end
-
-bash 'install-arc-theme' do
-  cwd '/tmp/arc-theme'
-  code <<-EOC
-    ./autogen.sh --prefix=/usr
-    sudo make install
-  EOC
-  # creates '/usr/share/themes/Arc'
-  action :nothing
-end
+# #-----------------------------------------------------------------------------------------------------------------------
+# # Arc Theme
+#
+# # We don't want to delete the theme if we previously installed it from git.
+# %w(
+#   /usr/share/themes/Arc
+#   /usr/share/themes/Arc-Dark
+#   /usr/share/themes/Arc-Darker
+# ).each do |dir|
+#   directory dir do
+#     recursive true
+#     action :delete
+#     not_if 'test -d /tmp/arc-theme'
+#   end
+# end
+#
+# %W(
+#   #{ENV['HOME']}/.local/share/themes/Arc
+#   #{ENV['HOME']}/.local/share/themes/Arc-Dark
+#   #{ENV['HOME']}/.local/share/themes/Arc-Darker
+#   #{ENV['HOME']}/.themes/Arc
+#   #{ENV['HOME']}/.themes/Arc-Dark
+#   #{ENV['HOME']}/.themes/Arc-Darker
+# ).each do |dir|
+#   directory dir do
+#     recursive true
+#     action :delete
+#   end
+# end
+#
+# # We don't want to delete the theme's source if we've previously downloaded it.
+# %w(
+#   /tmp/arc-theme
+# ).each do |dir|
+#   directory dir do
+#     recursive true
+#     action :delete
+#     not_if 'test -d /usr/share/themes/Arc'
+#   end
+# end
+#
+# git '/tmp/arc-theme' do
+#   repository 'https://github.com/horst3180/arc-theme'
+#   depth 1
+#   reference 'master'
+#   action :sync
+#   notifies :run, 'bash[install-arc-theme]'
+# end
+#
+# bash 'install-arc-theme' do
+#   cwd '/tmp/arc-theme'
+#   code <<-EOC
+#     ./autogen.sh --prefix=/usr
+#     sudo make install
+#   EOC
+#   # creates '/usr/share/themes/Arc'
+#   action :nothing
+# end
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Yosembiance Theme
