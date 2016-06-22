@@ -1,5 +1,5 @@
 {
-  "revision_id": "4bfc9fb67e5ba110b518c4fbb301ef17ec02b10cb655c3a26e476f1235271b48",
+  "revision_id": "2d64356757b1d512b986c6a7da57ba86103fcce137b4f4a44f75cccc4b0113ab",
   "name": "chef-my_workstation",
   "run_list": [
     "recipe[my_workstation::default]"
@@ -23,14 +23,14 @@
   "cookbook_locks": {
     "my_workstation": {
       "version": "0.1.0",
-      "identifier": "0d084eaa11168fcf86c93be73bc68c6ea65486b9",
-      "dotted_decimal_identifier": "3668308650956431.58413519030664134.154406864848569",
+      "identifier": "30fb4ac48cf299c3c582be671a2fec3d23d6257d",
+      "dotted_decimal_identifier": "13787097425834649.55104785789426223.259747338397053",
       "source": "cookbooks/my_workstation",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:redeemed2011/chef-my-workstation.git",
-        "revision": "45c2310efaf114d10159a0efdbe9e4ceb3347eaa",
+        "revision": "73c3b944289ebe5f09119128e40aa4112ff88185",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [
@@ -55,14 +55,14 @@
       }
     },
     "apt": {
-      "version": "4.0.0",
-      "identifier": "8fcf7e803c6505b4a25b4bc7606838faa0d4ecf0",
-      "dotted_decimal_identifier": "40479063893894405.50844008804999272.62649091288304",
-      "cache_key": "apt-4.0.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/4.0.0/download",
+      "version": "4.0.1",
+      "identifier": "2bcbf5fe32d4deac130d58f339c61d9337bc7b83",
+      "dotted_decimal_identifier": "12327681390728414.48434644042070470.32518132497283",
+      "cache_key": "apt-4.0.1-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/4.0.1/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/4.0.0/download",
-        "version": "4.0.0"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/4.0.1/download",
+        "version": "4.0.1"
       }
     },
     "compat_resource": {
@@ -77,14 +77,14 @@
       }
     },
     "docker": {
-      "version": "2.7.1",
-      "identifier": "d059ff257591ee804d38a3ba08d0129d3d805801",
-      "dotted_decimal_identifier": "58645747535811054.36113702679349456.20466550986753",
-      "cache_key": "docker-2.7.1-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/2.7.1/download",
+      "version": "2.9.0",
+      "identifier": "a2e19c4916d83dd30eacb8e6d573ff7bcd8044b9",
+      "dotted_decimal_identifier": "45847007584507965.59407355085247859.280907193795769",
+      "cache_key": "docker-2.9.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/2.9.0/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/2.7.1/download",
-        "version": "2.7.1"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/2.9.0/download",
+        "version": "2.9.0"
       }
     },
     "openssh": {
@@ -121,14 +121,14 @@
       }
     },
     "poise": {
-      "version": "2.7.0",
-      "identifier": "d0b42fd527a5a0d0b9245be089d90414be63be18",
-      "dotted_decimal_identifier": "58744912688424352.58750360967219673.4487140064792",
-      "cache_key": "poise-2.7.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise/versions/2.7.0/download",
+      "version": "2.7.1",
+      "identifier": "5fc6c0e86daaba7c2cf0d3ce239255ef9ab9ffea",
+      "dotted_decimal_identifier": "26958654623034042.34952309969396626.94487581425642",
+      "cache_key": "poise-2.7.1-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise/versions/2.7.1/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise/versions/2.7.0/download",
-        "version": "2.7.0"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise/versions/2.7.1/download",
+        "version": "2.7.1"
       }
     },
     "poise-languages": {
@@ -242,14 +242,14 @@
       }
     },
     "windows": {
-      "version": "1.43.0",
-      "identifier": "e462959d40bb34df4a4da50b6d1bec33b2c7cb7e",
-      "dotted_decimal_identifier": "64284689417943860.62850617148402971.259706786925438",
-      "cache_key": "windows-1.43.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/1.43.0/download",
+      "version": "1.44.0",
+      "identifier": "f7f7bf67af2da8a0a5bde182e84c78bdb61d769e",
+      "dotted_decimal_identifier": "69796720697879976.45218231224559692.132756199536286",
+      "cache_key": "windows-1.44.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/1.44.0/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/1.43.0/download",
-        "version": "1.43.0"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/1.44.0/download",
+        "version": "1.44.0"
       }
     },
     "chef_handler": {
@@ -282,7 +282,7 @@
       ],
       [
         "apt",
-        "= 4.0.0"
+        "= 4.0.1"
       ],
       [
         "compat_resource",
@@ -290,7 +290,7 @@
       ],
       [
         "docker",
-        "= 2.7.1"
+        "= 2.9.0"
       ],
       [
         "openssh",
@@ -306,7 +306,7 @@
       ],
       [
         "poise",
-        "= 2.7.0"
+        "= 2.7.1"
       ],
       [
         "poise-languages",
@@ -350,7 +350,7 @@
       ],
       [
         "windows",
-        "= 1.43.0"
+        "= 1.44.0"
       ],
       [
         "chef_handler",
@@ -400,16 +400,16 @@
           "~> 0.5.0"
         ]
       ],
-      "apt (4.0.0)": [
+      "apt (4.0.1)": [
         [
           "compat_resource",
-          ">= 0.0.0"
+          ">= 12.10.0"
         ]
       ],
       "compat_resource (12.10.6)": [
 
       ],
-      "docker (2.7.1)": [
+      "docker (2.9.0)": [
         [
           "compat_resource",
           ">= 12.9.0"
@@ -434,7 +434,7 @@
           "~> 1.3"
         ]
       ],
-      "poise (2.7.0)": [
+      "poise (2.7.1)": [
 
       ],
       "poise-languages (1.4.0)": [
@@ -501,7 +501,7 @@
       "dmg (2.4.0)": [
 
       ],
-      "windows (1.43.0)": [
+      "windows (1.44.0)": [
         [
           "chef_handler",
           ">= 0.0.0"
