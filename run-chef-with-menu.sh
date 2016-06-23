@@ -98,6 +98,11 @@ install_desirables() {
   exit $?
 }
 
+install_core_desktop_components() {
+  sudo -E chef-client -z -n 'default_workstation' #-l info
+  exit $?
+}
+
 install_gnome() {
   sudo -E chef-client -z -n 'gnome_workstation' #-l info
   exit $?
@@ -126,9 +131,10 @@ present_menu() {
 
   print_info "Welcome to the post-installation setup. :)" "\n"
   cat <<-'EOP'
-    1) Install desired packages without changing desktop environment.
-    2) Change to Unity desktop environment & install desired packages (#1).
-    3) Change to GNOME desktop environment & install desired packages (#1).
+    1) Install desired core packages, unrelated to desktop environments & applications.
+    2) Install desired desktop related packages without changing desktop environment & install #1.
+    3) Change to Unity desktop environment & install #2.
+    4) Change to GNOME desktop environment & install #2.
     q) Quit
 EOP
 
@@ -144,9 +150,12 @@ EOP
       install_desirables
       ;;
     2)
-      install_unity
+      install_core_desktop_components
       ;;
     3)
+      install_unity
+      ;;
+    4)
       install_gnome
       ;;
     q*|Q*)

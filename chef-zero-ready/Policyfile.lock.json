@@ -30,7 +30,7 @@
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:redeemed2011/chef-my-workstation.git",
-        "revision": "73c3b944289ebe5f09119128e40aa4112ff88185",
+        "revision": "1a6ae020ed4c9cbecd146a216d97bfb5580f33b1",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [
