@@ -31,12 +31,12 @@
 
   },
   "providing": {
-    "my_workstation": ">= 0.0.0",
-    "my_workstation::gnome_desktop": ">= 0.0.0",
-    "my_workstation::nemo": ">= 0.0.0",
-    "my_workstation::unity_desktop": ">= 0.0.0",
     "my_workstation::default_desktop": ">= 0.0.0",
-    "my_workstation::variety": ">= 0.0.0"
+    "my_workstation::variety": ">= 0.0.0",
+    "my_workstation::gnome_desktop": ">= 0.0.0",
+    "my_workstation": ">= 0.0.0",
+    "my_workstation::unity_desktop": ">= 0.0.0",
+    "my_workstation::nemo": ">= 0.0.0"
   },
   "replacing": {
 
@@ -48,12 +48,12 @@
 
   },
   "recipes": {
-    "my_workstation": "",
-    "my_workstation::gnome_desktop": "",
-    "my_workstation::nemo": "",
-    "my_workstation::unity_desktop": "",
     "my_workstation::default_desktop": "",
-    "my_workstation::variety": ""
+    "my_workstation::variety": "",
+    "my_workstation::gnome_desktop": "",
+    "my_workstation": "",
+    "my_workstation::unity_desktop": "",
+    "my_workstation::nemo": ""
   },
   "version": "0.1.0",
   "source_url": "",

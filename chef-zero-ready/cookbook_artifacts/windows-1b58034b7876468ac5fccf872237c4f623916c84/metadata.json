@@ -37,9 +37,9 @@
     "windows": "",
     "windows::reboot_handler": ""
   },
-  "version": "1.44.0",
-  "source_url": "https://github.com/chef-cookbooks/windows",
-  "issues_url": "https://github.com/chef-cookbooks/windows/issues",
+  "version": "1.44.1",
+  "source_url": "",
+  "issues_url": "",
   "privacy": false,
   "chef_versions": [
 

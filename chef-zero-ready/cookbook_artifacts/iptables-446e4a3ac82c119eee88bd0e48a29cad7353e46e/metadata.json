@@ -27,9 +27,9 @@
 
   },
   "providing": {
+    "iptables::disabled": ">= 0.0.0",
     "iptables::_package": ">= 0.0.0",
-    "iptables": ">= 0.0.0",
-    "iptables::disabled": ">= 0.0.0"
+    "iptables": ">= 0.0.0"
   },
   "replacing": {
 
@@ -43,9 +43,9 @@
   "recipes": {
     "default": "Installs iptables and sets up .d style config directory of iptables rules",
     "disabled": "Disables iptables",
+    "iptables::disabled": "",
     "iptables::_package": "",
-    "iptables": "",
-    "iptables::disabled": ""
+    "iptables": ""
   },
   "version": "2.2.0",
   "source_url": "",

@@ -630,6 +630,13 @@ cookbook_file '/usr/share/applications/btsync.desktop' do
   mode '0644'
 end
 
+directory "#{ENV['HOME']}/.config/autostart/" do
+  owner CURRENT_USER
+  group CURRENT_USER
+  recursive true
+  action :create
+end
+
 template "#{ENV['HOME']}/.config/autostart/btsync.desktop" do
   source '.config/autostart/btsync.desktop.erb'
   owner CURRENT_USER
