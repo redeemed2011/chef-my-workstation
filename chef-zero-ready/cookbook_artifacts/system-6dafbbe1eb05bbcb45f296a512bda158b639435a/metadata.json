@@ -29,18 +29,18 @@
 
   },
   "providing": {
-    "system::hostname": ">= 0.0.0",
-    "system::reboot": ">= 0.0.0",
-    "system::upgrade_packages": ">= 0.0.0",
-    "system::environment": ">= 0.0.0",
-    "system::uninstall_packages": ">= 0.0.0",
-    "system::timezone": ">= 0.0.0",
     "system": ">= 0.0.0",
+    "system::environment": ">= 0.0.0",
+    "system::hostname": ">= 0.0.0",
+    "system::install_packages": ">= 0.0.0",
     "system::profile": ">= 0.0.0",
-    "system::test_fqdn_set": ">= 0.0.0",
+    "system::reboot": ">= 0.0.0",
     "system::shutdown": ">= 0.0.0",
+    "system::test_fqdn_set": ">= 0.0.0",
+    "system::timezone": ">= 0.0.0",
+    "system::uninstall_packages": ">= 0.0.0",
     "system::update_package_list": ">= 0.0.0",
-    "system::install_packages": ">= 0.0.0"
+    "system::upgrade_packages": ">= 0.0.0"
   },
   "replacing": {
 
@@ -400,10 +400,10 @@
     "system::install_packages": "Installs packages to the system with it's native package manager.",
     "system::reboot": "Attempts to gracefully reboot the operating system.",
     "system::shutdown": "Attempts to gracefully shutdown the operating system.",
-    "system::environment": "",
-    "system::uninstall_packages": "",
     "system": "",
-    "system::test_fqdn_set": ""
+    "system::environment": "",
+    "system::test_fqdn_set": "",
+    "system::uninstall_packages": ""
   },
   "version": "0.11.0",
   "source_url": "",

@@ -88,12 +88,13 @@ apt_repository 'open-source-graphics-drivers' do
   key 'http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x957D2708A03A4626'
 end
 
-# Repo for 'screencloud'.
-apt_repository 'screencloud' do
-  uri 'http://download.opensuse.org/repositories/home:/olav-st/xUbuntu_15.10/'
-  distribution '/'
-  key 'http://download.opensuse.org/repositories/home:/olav-st/xUbuntu_15.10/Release.key'
-end
+# July 2016: this package is failing to install.
+# # Repo for 'screencloud'.
+# apt_repository 'screencloud' do
+#   uri 'http://download.opensuse.org/repositories/home:/olav-st/xUbuntu_15.10/'
+#   distribution '/'
+#   key 'http://download.opensuse.org/repositories/home:/olav-st/xUbuntu_15.10/Release.key'
+# end
 
 # Vibrancy colors icons.
 apt_repository 'ravefinity-project' do
@@ -136,35 +137,37 @@ end
 end
 
 # Desirables.
+# * nvidia-367: "long lived branch" of drivers from nvidia.
+# * pinta: Paint.NET inspired image editor.
 # * gtk2-engines-pixbuf libgtk-3-dev autoconf automake gnome-themes-standard: needed for arc-theme, vertex-theme or
 #   ceti-2-theme.
 # * wmctrl: allows one to do nifty things like make windows stay always on top via custom hotkeys (or one could just
 #   press ALT+SPACE,T); "wmctrl -r :ACTIVE: -b toggle,above"
 # * steam: usually asks the user to agree to a EULA, so likely will need to run "dpkg-reconfigure steam" after chef run.
-# * screencloud: screenshot util.
+# * screencloud: screenshot util. UPDATE: July 2016: this package is failing to install.
 %w(
   vibrancy-colors antu-universal-icons
   atom
   dconf-editor
   enpass
-  gimp
+  pinta
   gksu
   insync
   mesa-va-drivers mesa-vdpau-drivers xserver-xorg-video-nouveau
   nautilus-dropbox
-  nvidia-364 nvidia-prime prime-indicator
+  nvidia-367 nvidia-prime prime-indicator
   steam
   sublime-text-installer
   synaptic
   vertex-icons gtk2-engines-pixbuf libgtk-3-dev autoconf automake gnome-themes-standard
-  virtualbox-5.0
+  virtualbox-5.1
   vlc browser-plugin-vlc
   wmctrl
   y-ppa-manager
   playonlinux wine winetricks
   arc-theme ceti-2-theme vertex-theme arc-icons
-  screencloud
 ).each do |pkg|
+  # screencloud  # UPDATE: July 2016: this package is failing to install.
   # apt-fast
   package pkg do
     action :install

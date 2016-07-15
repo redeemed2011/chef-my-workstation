@@ -22,9 +22,9 @@
 
   },
   "providing": {
+    "apt::cacher-client": ">= 0.0.0",
     "apt::cacher-ng": ">= 0.0.0",
     "apt": ">= 0.0.0",
-    "apt::cacher-client": ">= 0.0.0",
     "apt::unattended-upgrades": ">= 0.0.0"
   },
   "replacing": {
