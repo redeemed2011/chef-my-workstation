@@ -21,8 +21,8 @@
 
   },
   "providing": {
-    "tarball": ">= 0.0.0",
-    "tarball::test": ">= 0.0.0"
+    "tarball::test": ">= 0.0.0",
+    "tarball": ">= 0.0.0"
   },
   "replacing": {
 
@@ -34,8 +34,8 @@
 
   },
   "recipes": {
-    "tarball": "",
-    "tarball::test": ""
+    "tarball::test": "",
+    "tarball": ""
   },
   "version": "0.0.1",
   "source_url": "",

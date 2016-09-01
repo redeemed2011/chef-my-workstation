@@ -33,11 +33,11 @@
 
   },
   "providing": {
-    "ruby_rbenv": ">= 0.0.0",
+    "ruby_rbenv::user_install": ">= 0.0.0",
     "ruby_rbenv::system": ">= 0.0.0",
-    "ruby_rbenv::system_install": ">= 0.0.0",
     "ruby_rbenv::user": ">= 0.0.0",
-    "ruby_rbenv::user_install": ">= 0.0.0"
+    "ruby_rbenv": ">= 0.0.0",
+    "ruby_rbenv::system_install": ">= 0.0.0"
   },
   "replacing": {
 
@@ -49,11 +49,11 @@
 
   },
   "recipes": {
-    "ruby_rbenv": "",
+    "ruby_rbenv::user_install": "",
     "ruby_rbenv::system": "",
-    "ruby_rbenv::system_install": "",
     "ruby_rbenv::user": "",
-    "ruby_rbenv::user_install": ""
+    "ruby_rbenv": "",
+    "ruby_rbenv::system_install": ""
   },
   "version": "1.0.1",
   "source_url": "",

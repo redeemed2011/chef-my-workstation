@@ -21,8 +21,8 @@
 
   },
   "providing": {
-    "chef_handler": ">= 0.0.0",
-    "chef_handler::json_file": ">= 0.0.0"
+    "chef_handler::json_file": ">= 0.0.0",
+    "chef_handler": ">= 0.0.0"
   },
   "replacing": {
 

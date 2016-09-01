@@ -27,15 +27,15 @@
 
   },
   "providing": {
+    "vagrant::uninstall_gem": ">= 0.0.0",
+    "vagrant::mac_os_x": ">= 0.0.0",
     "vagrant::debian": ">= 0.0.0",
-    "vagrant": ">= 0.0.0",
+    "vagrant::windows": ">= 0.0.0",
+    "vagrant::rhel": ">= 0.0.0",
     "vagrant::fedora": ">= 0.0.0",
     "vagrant::install_plugins": ">= 0.0.0",
-    "vagrant::mac_os_x": ">= 0.0.0",
-    "vagrant::rhel": ">= 0.0.0",
-    "vagrant::suse": ">= 0.0.0",
-    "vagrant::uninstall_gem": ">= 0.0.0",
-    "vagrant::windows": ">= 0.0.0"
+    "vagrant": ">= 0.0.0",
+    "vagrant::suse": ">= 0.0.0"
   },
   "replacing": {
 
@@ -47,15 +47,15 @@
 
   },
   "recipes": {
+    "vagrant::uninstall_gem": "",
+    "vagrant::mac_os_x": "",
     "vagrant::debian": "",
-    "vagrant": "",
+    "vagrant::windows": "",
+    "vagrant::rhel": "",
     "vagrant::fedora": "",
     "vagrant::install_plugins": "",
-    "vagrant::mac_os_x": "",
-    "vagrant::rhel": "",
-    "vagrant::suse": "",
-    "vagrant::uninstall_gem": "",
-    "vagrant::windows": ""
+    "vagrant": "",
+    "vagrant::suse": ""
   },
   "version": "0.5.0",
   "source_url": "",
