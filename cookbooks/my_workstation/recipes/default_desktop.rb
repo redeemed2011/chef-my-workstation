@@ -267,7 +267,7 @@ end
 # Create script for user to run later.
 
 cookbook_file "#{ENV['HOME']}/user-extras.sh" do
-  source 'files/user-extras.sh'
+  source 'user-extras.sh'
   owner CURRENT_USER
   group CURRENT_USER
   mode '0744'
