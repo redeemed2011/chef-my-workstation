@@ -30,7 +30,7 @@ apt_repository 'ubuntu-wine' do
   uri 'ppa:ubuntu-wine/ppa'
   distribution node['lsb']['codename']
   components %w(main)
-  not_if ( node.virtualization.system == 'host' )
+  not_if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' )
 end
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -58,7 +58,7 @@ end
 end
 
 # Is chef running in a baremetal system?
-if ( node.virtualization.system == 'host' ) then
+if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' ) then
   %w(
     playonlinux wine winetricks
   ).each do |pkg|
@@ -179,5 +179,5 @@ bash 'disable touchpad when external mouse is present' do
   code <<-EOH
     gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled-on-external-mouse
   EOH
-  not_if ( node.virtualization.system == 'host' )
+  not_if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' )
 end
