@@ -248,20 +248,11 @@ end
 #-----------------------------------------------------------------------------------------------------------------------
 # Syncthing
 
-directory "#{ENV['HOME']}/syncthing/shares/" do
+directory "#{ENV['HOME']}/syncthing-shares/" do
   owner CURRENT_USER
   group CURRENT_USER
   recursive true
   action :create
-end
-
-tarball "#{ENV['HOME']}/syncthing/installer.tar.gz" do
-  destination "#{ENV['HOME']}/syncthing/"
-  owner CURRENT_USER
-  group CURRENT_USER
-  # extract_list %W( * )
-  # umask 022 # Will be applied to perms in archive
-  action :extract
 end
 
 cookbook_file '/usr/share/applications/syncthing.desktop' do
