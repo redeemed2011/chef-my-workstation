@@ -262,11 +262,13 @@ cookbook_file '/usr/share/applications/syncthing.desktop' do
   mode '0644'
 end
 
-service 'syncthing' do
-  supports status: true, restart: true, reload: true
-  action :enable
+execute "enable syncthing" do
+  command <<-EOF
+    sudo systemctl enable syncthing@#{CURRENT_USER}.service
+    sudo systemctl start syncthing@#{CURRENT_USER}.service
+    EOF
+  action :run
 end
-
 
 # #-----------------------------------------------------------------------------------------------------------------------
 # # Vertex Theme
