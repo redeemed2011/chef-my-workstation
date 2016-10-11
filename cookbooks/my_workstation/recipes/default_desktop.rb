@@ -245,13 +245,6 @@ dpkg_package 'google-chrome' do
   action :install
 end
 
-execute "move chrome title buttons to left side" do
-  command <<-EOF
-    gconftool-2 --set /apps/metacity/general/button_layout --type string "close,minimize,maximize:"
-  EOF
-  action :run
-end
-
 #-----------------------------------------------------------------------------------------------------------------------
 # Syncthing
 
