@@ -42,8 +42,8 @@ apt_repository 'syncthing' do
   trusted true
 end
 
-# # Is chef running in a baremetal system?
-# if ( node.virtualization.system == 'host' ) then
+# Is chef running in a baremetal system?
+if ( node.virtualization.system == 'host' ) then
   apt_repository 'virtualbox' do
     uri 'http://download.virtualbox.org/virtualbox/debian'
     distribution node['lsb']['codename']
@@ -69,7 +69,7 @@ end
     uri 'ppa:graphics-drivers/ppa'
     distribution node['lsb']['codename']
   end
-# end
+end
 
 # Some of these themes are not working in Gnome 3.20 at the time of this writing, so not using this ppa.
 apt_repository 'horst3180' do
