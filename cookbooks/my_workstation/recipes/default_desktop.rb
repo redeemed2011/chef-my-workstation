@@ -245,6 +245,13 @@ dpkg_package 'google-chrome' do
   action :install
 end
 
+execute "move chrome title buttons to left side" do
+  command <<-EOF
+    gconftool-2 --set /apps/metacity/general/button_layout --type string "close,minimize,maximize:"
+  EOF
+  action :run
+end
+
 #-----------------------------------------------------------------------------------------------------------------------
 # Syncthing
 
@@ -259,8 +266,18 @@ execute "enable syncthing" do
   command <<-EOF
     sudo systemctl enable syncthing@#{CURRENT_USER}.service
     sudo systemctl start syncthing@#{CURRENT_USER}.service
-    EOF
+  EOF
   action :run
+end
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Create script for user to run later.
+
+cookbook_file "#{ENV['HOME']}/user-extras.sh" do
+  source 'files/user-extras.sh'
+  owner CURRENT_USER
+  group CURRENT_USER
+  mode '0744'
 end
 
 # #-----------------------------------------------------------------------------------------------------------------------
