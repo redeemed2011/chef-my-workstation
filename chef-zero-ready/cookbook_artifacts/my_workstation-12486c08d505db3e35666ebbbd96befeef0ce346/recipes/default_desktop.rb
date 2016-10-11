@@ -248,13 +248,6 @@ end
 #-----------------------------------------------------------------------------------------------------------------------
 # Syncthing
 
-directory "#{ENV['HOME']}/syncthing-shares/" do
-  owner CURRENT_USER
-  group CURRENT_USER
-  recursive true
-  action :create
-end
-
 cookbook_file '/usr/share/applications/syncthing.desktop' do
   source 'applications/syncthing.desktop'
   owner 'root'
