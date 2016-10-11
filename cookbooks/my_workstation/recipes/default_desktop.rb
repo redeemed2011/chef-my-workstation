@@ -43,7 +43,7 @@ apt_repository 'syncthing' do
 end
 
 # Is chef running in a baremetal system?
-if ( node.virtualization.system == 'host' ) then
+if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' ) then
   apt_repository 'virtualbox' do
     uri 'http://download.virtualbox.org/virtualbox/debian'
     distribution node['lsb']['codename']
@@ -162,7 +162,7 @@ end
 end
 
 # Is chef running in a baremetal system?
-if ( node.virtualization.system == 'host' ) then
+if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' ) then
   %w(
     mesa-va-drivers mesa-vdpau-drivers xserver-xorg-video-nouveau
     nvidia-367 nvidia-prime prime-indicator
@@ -185,7 +185,7 @@ end
 group 'vboxusers' do
   action :create
   members %W(#{CURRENT_USER})
-  not_if ( node.virtualization.system == 'host' )
+  not_if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' )
 end
 
 # Disable copy-on-write on folders that have VMs.
@@ -206,7 +206,7 @@ end
   end
 end
 
-if ( node.virtualization.system == 'host' ) then
+if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' ) then
   %W(
     #{ENV['HOME']}/VirtualBox\ VMs
   ).each do |dir|
