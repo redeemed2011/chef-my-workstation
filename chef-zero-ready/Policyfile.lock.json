@@ -1,5 +1,5 @@
 {
-  "revision_id": "5f05c7a2a3f8c0b3afba39270ad60157b3a1eb149ce4c0645673e9f55a87b5a4",
+  "revision_id": "11c6f158a5afe3f2850023cf33787ef4e0c8adab39a8568be259a47201855fab",
   "name": "chef-my_workstation",
   "run_list": [
     "recipe[my_workstation::default]",
@@ -36,14 +36,14 @@
   "cookbook_locks": {
     "my_workstation": {
       "version": "0.1.0",
-      "identifier": "ab529281d8a6245f65cbb01beaabf0f3ebd65f4d",
-      "dotted_decimal_identifier": "48223010214684196.26852048294898347.264930424414029",
+      "identifier": "c47ffd0081977c75109725d822a20abe05efea2f",
+      "dotted_decimal_identifier": "55309820047234940.32950813636174498.11811259673135",
       "source": "cookbooks/my_workstation",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
-        "remote": "git@github.com:redeemed2011/chef-my-workstation.git",
-        "revision": "786cd21c997966c81f7764791a2041d87ba80a11",
+        "remote": "https://github.com/redeemed2011/chef-my-workstation.git",
+        "revision": "de9d03e282ba9d51d75c34c6b57d0799f2c4cc21",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [
@@ -78,17 +78,6 @@
         "version": "4.0.2"
       }
     },
-    "compat_resource": {
-      "version": "12.14.0",
-      "identifier": "0e312445de07c01dbf8a7ee3f34d1327ce285503",
-      "dotted_decimal_identifier": "3994681534711744.8373375879869261.21061683401987",
-      "cache_key": "compat_resource-12.14.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.14.0/download",
-      "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.14.0/download",
-        "version": "12.14.0"
-      }
-    },
     "docker": {
       "version": "2.9.6",
       "identifier": "f58060869e6f337fbd19983de5bd74ad86a503ef",
@@ -111,17 +100,6 @@
         "version": "2.0.0"
       }
     },
-    "iptables": {
-      "version": "2.2.0",
-      "identifier": "446e4a3ac82c119eee88bd0e48a29cad7353e46e",
-      "dotted_decimal_identifier": "19261563509156881.44735317375076514.172268778153070",
-      "cache_key": "iptables-2.2.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/iptables/versions/2.2.0/download",
-      "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/iptables/versions/2.2.0/download",
-        "version": "2.2.0"
-      }
-    },
     "poise-python": {
       "version": "1.3.0",
       "identifier": "348ac1f5bfb998369bfd1d649d4387c6982a7864",
@@ -130,39 +108,6 @@
       "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-python/versions/1.3.0/download",
       "source_options": {
         "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-python/versions/1.3.0/download",
-        "version": "1.3.0"
-      }
-    },
-    "poise": {
-      "version": "2.7.1",
-      "identifier": "5fc6c0e86daaba7c2cf0d3ce239255ef9ab9ffea",
-      "dotted_decimal_identifier": "26958654623034042.34952309969396626.94487581425642",
-      "cache_key": "poise-2.7.1-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise/versions/2.7.1/download",
-      "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise/versions/2.7.1/download",
-        "version": "2.7.1"
-      }
-    },
-    "poise-languages": {
-      "version": "1.4.0",
-      "identifier": "409579732cab5aff4d62acc1bbe4a87a006bb043",
-      "dotted_decimal_identifier": "18178747365370714.71861205261728740.185241946533955",
-      "cache_key": "poise-languages-1.4.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-languages/versions/1.4.0/download",
-      "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-languages/versions/1.4.0/download",
-        "version": "1.4.0"
-      }
-    },
-    "poise-archive": {
-      "version": "1.3.0",
-      "identifier": "1aac95a53b113540a407f9fdcf182530a0677583",
-      "dotted_decimal_identifier": "7508108116693301.18194752675368728.40890779792771",
-      "cache_key": "poise-archive-1.3.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-archive/versions/1.3.0/download",
-      "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-archive/versions/1.3.0/download",
         "version": "1.3.0"
       }
     },
@@ -189,47 +134,25 @@
       }
     },
     "sudo": {
-      "version": "2.11.0",
-      "identifier": "5439375c9b45c55c013b88b8bc7707c1f24be70d",
-      "dotted_decimal_identifier": "23706807983359429.25897053065886839.8529575143181",
-      "cache_key": "sudo-2.11.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/sudo/versions/2.11.0/download",
+      "version": "3.0.0",
+      "identifier": "385efbff7f96407840bef5000ed4564a1af5faa6",
+      "dotted_decimal_identifier": "15867035112150592.33848186103664340.94876279896742",
+      "cache_key": "sudo-3.0.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/sudo/versions/3.0.0/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/sudo/versions/2.11.0/download",
-        "version": "2.11.0"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/sudo/versions/3.0.0/download",
+        "version": "3.0.0"
       }
     },
     "system": {
-      "version": "0.11.0",
-      "identifier": "6dafbbe1eb05bbcb45f296a512bda158b639435a",
-      "dotted_decimal_identifier": "30873993945482683.57216328484065981.177402386400090",
-      "cache_key": "system-0.11.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/system/versions/0.11.0/download",
+      "version": "0.11.2",
+      "identifier": "230cf2479dfe23a3f252ed314b34a201ab1bf3c9",
+      "dotted_decimal_identifier": "9865858908028451.46146859184507700.178128049402825",
+      "cache_key": "system-0.11.2-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/system/versions/0.11.2/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/system/versions/0.11.0/download",
-        "version": "0.11.0"
-      }
-    },
-    "cron": {
-      "version": "1.7.6",
-      "identifier": "63662701c57f530f2c3dedd78e3bd7d63cc06fa0",
-      "dotted_decimal_identifier": "27978340413833043.4270769145613883.237315142217632",
-      "cache_key": "cron-1.7.6-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/cron/versions/1.7.6/download",
-      "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/cron/versions/1.7.6/download",
-        "version": "1.7.6"
-      }
-    },
-    "hostsfile": {
-      "version": "2.4.5",
-      "identifier": "15e126e37ecaa1d39c549ae001f2a4a12a1844fa",
-      "dotted_decimal_identifier": "6158531652668065.59563107275506162.181012102923514",
-      "cache_key": "hostsfile-2.4.5-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/hostsfile/versions/2.4.5/download",
-      "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/hostsfile/versions/2.4.5/download",
-        "version": "2.4.5"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/system/versions/0.11.2/download",
+        "version": "0.11.2"
       }
     },
     "vagrant": {
@@ -243,15 +166,37 @@
         "version": "0.5.0"
       }
     },
-    "dmg": {
-      "version": "2.4.0",
-      "identifier": "18ecc45e6cfba70985620d8f2358d63c34845f01",
-      "dotted_decimal_identifier": "7015727583001511.2679930971169624.235554067472129",
-      "cache_key": "dmg-2.4.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/dmg/versions/2.4.0/download",
+    "poise": {
+      "version": "2.7.1",
+      "identifier": "5fc6c0e86daaba7c2cf0d3ce239255ef9ab9ffea",
+      "dotted_decimal_identifier": "26958654623034042.34952309969396626.94487581425642",
+      "cache_key": "poise-2.7.1-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise/versions/2.7.1/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/dmg/versions/2.4.0/download",
-        "version": "2.4.0"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise/versions/2.7.1/download",
+        "version": "2.7.1"
+      }
+    },
+    "poise-languages": {
+      "version": "1.4.0",
+      "identifier": "409579732cab5aff4d62acc1bbe4a87a006bb043",
+      "dotted_decimal_identifier": "18178747365370714.71861205261728740.185241946533955",
+      "cache_key": "poise-languages-1.4.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-languages/versions/1.4.0/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-languages/versions/1.4.0/download",
+        "version": "1.4.0"
+      }
+    },
+    "dmg": {
+      "version": "3.0.0",
+      "identifier": "8bddb7372258f7c86b19f0ff52691fda73fab7eb",
+      "dotted_decimal_identifier": "39368800736532727.56412754503750249.35023109142507",
+      "cache_key": "dmg-3.0.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/dmg/versions/3.0.0/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/dmg/versions/3.0.0/download",
+        "version": "3.0.0"
       }
     },
     "windows": {
@@ -265,15 +210,70 @@
         "version": "1.44.3"
       }
     },
-    "chef_handler": {
-      "version": "1.4.0",
-      "identifier": "aa794c0c3a03d09a5e22ca2ffb70115fda923471",
-      "dotted_decimal_identifier": "47984113570415568.43450649927482224.19103386580081",
-      "cache_key": "chef_handler-1.4.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/chef_handler/versions/1.4.0/download",
+    "poise-archive": {
+      "version": "1.3.0",
+      "identifier": "1aac95a53b113540a407f9fdcf182530a0677583",
+      "dotted_decimal_identifier": "7508108116693301.18194752675368728.40890779792771",
+      "cache_key": "poise-archive-1.3.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-archive/versions/1.3.0/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/chef_handler/versions/1.4.0/download",
-        "version": "1.4.0"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-archive/versions/1.3.0/download",
+        "version": "1.3.0"
+      }
+    },
+    "iptables": {
+      "version": "3.0.0",
+      "identifier": "f43c6955ff5b44e76788fee6bc9a6fecb3111bf2",
+      "dotted_decimal_identifier": "68746317429431108.65134557709909146.123062407207922",
+      "cache_key": "iptables-3.0.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/iptables/versions/3.0.0/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/iptables/versions/3.0.0/download",
+        "version": "3.0.0"
+      }
+    },
+    "compat_resource": {
+      "version": "12.14.7",
+      "identifier": "8d958f9606f7e6c7469bebb54cb7bd2141dc8745",
+      "dotted_decimal_identifier": "39852415646103526.56091155853823159.207950536542021",
+      "cache_key": "compat_resource-12.14.7-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.14.7/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.14.7/download",
+        "version": "12.14.7"
+      }
+    },
+    "cron": {
+      "version": "2.0.0",
+      "identifier": "f7c8d30c7894543e7c95514354f1d926e54b8ba5",
+      "dotted_decimal_identifier": "69745128020415572.17588429311399153.238761078918053",
+      "cache_key": "cron-2.0.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/cron/versions/2.0.0/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/cron/versions/2.0.0/download",
+        "version": "2.0.0"
+      }
+    },
+    "hostsfile": {
+      "version": "2.4.5",
+      "identifier": "15e126e37ecaa1d39c549ae001f2a4a12a1844fa",
+      "dotted_decimal_identifier": "6158531652668065.59563107275506162.181012102923514",
+      "cache_key": "hostsfile-2.4.5-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/hostsfile/versions/2.4.5/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/hostsfile/versions/2.4.5/download",
+        "version": "2.4.5"
+      }
+    },
+    "chef_handler": {
+      "version": "2.0.0",
+      "identifier": "bfb2bf83db007c3cae3ba1756f9e3c91695d450e",
+      "dotted_decimal_identifier": "53958256172400764.17080069737770910.66595235644686",
+      "cache_key": "chef_handler-2.0.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/chef_handler/versions/2.0.0/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/chef_handler/versions/2.0.0/download",
+        "version": "2.0.0"
       }
     }
   },
@@ -298,10 +298,6 @@
         "= 4.0.2"
       ],
       [
-        "compat_resource",
-        "= 12.14.0"
-      ],
-      [
         "docker",
         "= 2.9.6"
       ],
@@ -310,23 +306,7 @@
         "= 2.0.0"
       ],
       [
-        "iptables",
-        "= 2.2.0"
-      ],
-      [
         "poise-python",
-        "= 1.3.0"
-      ],
-      [
-        "poise",
-        "= 2.7.1"
-      ],
-      [
-        "poise-languages",
-        "= 1.4.0"
-      ],
-      [
-        "poise-archive",
         "= 1.3.0"
       ],
       [
@@ -339,35 +319,55 @@
       ],
       [
         "sudo",
-        "= 2.11.0"
+        "= 3.0.0"
       ],
       [
         "system",
-        "= 0.11.0"
-      ],
-      [
-        "cron",
-        "= 1.7.6"
-      ],
-      [
-        "hostsfile",
-        "= 2.4.5"
+        "= 0.11.2"
       ],
       [
         "vagrant",
         "= 0.5.0"
       ],
       [
+        "poise",
+        "= 2.7.1"
+      ],
+      [
+        "poise-languages",
+        "= 1.4.0"
+      ],
+      [
         "dmg",
-        "= 2.4.0"
+        "= 3.0.0"
       ],
       [
         "windows",
         "= 1.44.3"
       ],
       [
+        "poise-archive",
+        "= 1.3.0"
+      ],
+      [
+        "iptables",
+        "= 3.0.0"
+      ],
+      [
+        "compat_resource",
+        "= 12.14.7"
+      ],
+      [
+        "cron",
+        "= 2.0.0"
+      ],
+      [
+        "hostsfile",
+        "= 2.4.5"
+      ],
+      [
         "chef_handler",
-        "= 1.4.0"
+        "= 2.0.0"
       ]
     ],
     "dependencies": {
@@ -413,14 +413,14 @@
           "~> 0.5.0"
         ]
       ],
+      "tarball (0.0.1)": [
+
+      ],
       "apt (4.0.2)": [
         [
           "compat_resource",
           ">= 12.10.0"
         ]
-      ],
-      "compat_resource (12.14.0)": [
-
       ],
       "docker (2.9.6)": [
         [
@@ -434,9 +434,6 @@
           ">= 1.0.0"
         ]
       ],
-      "iptables (2.2.0)": [
-
-      ],
       "poise-python (1.3.0)": [
         [
           "poise",
@@ -445,6 +442,42 @@
         [
           "poise-languages",
           "~> 1.3"
+        ]
+      ],
+      "ruby_build (0.8.0)": [
+
+      ],
+      "ruby_rbenv (1.0.1)": [
+        [
+          "ruby_build",
+          ">= 0.0.0"
+        ]
+      ],
+      "sudo (3.0.0)": [
+
+      ],
+      "system (0.11.2)": [
+        [
+          "apt",
+          ">= 0.0.0"
+        ],
+        [
+          "cron",
+          ">= 0.0.0"
+        ],
+        [
+          "hostsfile",
+          ">= 0.0.0"
+        ]
+      ],
+      "vagrant (0.5.0)": [
+        [
+          "dmg",
+          ">= 2.2.2"
+        ],
+        [
+          "windows",
+          "~> 1.38"
         ]
       ],
       "poise (2.7.1)": [
@@ -460,58 +493,7 @@
           "~> 1.0"
         ]
       ],
-      "poise-archive (1.3.0)": [
-        [
-          "poise",
-          "~> 2.6"
-        ]
-      ],
-      "ruby_build (0.8.0)": [
-
-      ],
-      "ruby_rbenv (1.0.1)": [
-        [
-          "ruby_build",
-          ">= 0.0.0"
-        ]
-      ],
-      "sudo (2.11.0)": [
-
-      ],
-      "system (0.11.0)": [
-        [
-          "apt",
-          ">= 0.0.0"
-        ],
-        [
-          "cron",
-          ">= 0.0.0"
-        ],
-        [
-          "hostsfile",
-          ">= 0.0.0"
-        ]
-      ],
-      "cron (1.7.6)": [
-
-      ],
-      "hostsfile (2.4.5)": [
-
-      ],
-      "tarball (0.0.1)": [
-
-      ],
-      "vagrant (0.5.0)": [
-        [
-          "dmg",
-          ">= 2.2.2"
-        ],
-        [
-          "windows",
-          "~> 1.38"
-        ]
-      ],
-      "dmg (2.4.0)": [
+      "dmg (3.0.0)": [
 
       ],
       "windows (1.44.3)": [
@@ -520,7 +502,28 @@
           ">= 0.0.0"
         ]
       ],
-      "chef_handler (1.4.0)": [
+      "poise-archive (1.3.0)": [
+        [
+          "poise",
+          "~> 2.6"
+        ]
+      ],
+      "iptables (3.0.0)": [
+        [
+          "compat_resource",
+          ">= 12.14.3"
+        ]
+      ],
+      "compat_resource (12.14.7)": [
+
+      ],
+      "cron (2.0.0)": [
+
+      ],
+      "hostsfile (2.4.5)": [
+
+      ],
+      "chef_handler (2.0.0)": [
 
       ]
     }
