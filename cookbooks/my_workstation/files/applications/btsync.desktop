@@ -1,8 +1,0 @@
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Version=1.0
-Terminal=false
-Type=Application
-Name=BTSync
-Exec=/usr/bin/sensible-browser http://localhost:8888
-Icon=google-chrome

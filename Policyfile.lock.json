@@ -1,5 +1,5 @@
 {
-  "revision_id": "11c6f158a5afe3f2850023cf33787ef4e0c8adab39a8568be259a47201855fab",
+  "revision_id": "a70b4eac65f4960b68c2459621f9090e10d0df82efb21fd5eb03b1b56fe91591",
   "name": "chef-my_workstation",
   "run_list": [
     "recipe[my_workstation::default]",
@@ -36,19 +36,18 @@
   "cookbook_locks": {
     "my_workstation": {
       "version": "0.1.0",
-      "identifier": "c47ffd0081977c75109725d822a20abe05efea2f",
-      "dotted_decimal_identifier": "55309820047234940.32950813636174498.11811259673135",
+      "identifier": "71dfc1c806b566e2d002a163a2f8ae98959888f9",
+      "dotted_decimal_identifier": "32052695745869158.63842054452781816.191970368063737",
       "source": "cookbooks/my_workstation",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "https://github.com/redeemed2011/chef-my-workstation.git",
-        "revision": "de9d03e282ba9d51d75c34c6b57d0799f2c4cc21",
+        "revision": "20ce6f8e9960fbf6639b57831eb395772a42caf5",
         "working_tree_clean": false,
-        "published": true,
+        "published": false,
         "synchronized_remote_branches": [
-          "origin/HEAD -> origin/master",
-          "origin/master"
+
         ]
       },
       "source_options": {
@@ -222,14 +221,14 @@
       }
     },
     "iptables": {
-      "version": "3.0.0",
-      "identifier": "f43c6955ff5b44e76788fee6bc9a6fecb3111bf2",
-      "dotted_decimal_identifier": "68746317429431108.65134557709909146.123062407207922",
-      "cache_key": "iptables-3.0.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/iptables/versions/3.0.0/download",
+      "version": "3.0.1",
+      "identifier": "24a74162ba8334c091944828097d23b59b4a4f69",
+      "dotted_decimal_identifier": "10316998432686900.54203261580216701.39262901391209",
+      "cache_key": "iptables-3.0.1-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/iptables/versions/3.0.1/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/iptables/versions/3.0.0/download",
-        "version": "3.0.0"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/iptables/versions/3.0.1/download",
+        "version": "3.0.1"
       }
     },
     "compat_resource": {
@@ -244,14 +243,14 @@
       }
     },
     "cron": {
-      "version": "2.0.0",
-      "identifier": "f7c8d30c7894543e7c95514354f1d926e54b8ba5",
-      "dotted_decimal_identifier": "69745128020415572.17588429311399153.238761078918053",
-      "cache_key": "cron-2.0.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/cron/versions/2.0.0/download",
+      "version": "3.0.0",
+      "identifier": "fce38b7e1531080788a705dd699075e5dca81261",
+      "dotted_decimal_identifier": "71181882386362632.2120575776287120.129630109962849",
+      "cache_key": "cron-3.0.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/cron/versions/3.0.0/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/cron/versions/2.0.0/download",
-        "version": "2.0.0"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/cron/versions/3.0.0/download",
+        "version": "3.0.0"
       }
     },
     "hostsfile": {
@@ -351,7 +350,7 @@
       ],
       [
         "iptables",
-        "= 3.0.0"
+        "= 3.0.1"
       ],
       [
         "compat_resource",
@@ -359,7 +358,7 @@
       ],
       [
         "cron",
-        "= 2.0.0"
+        "= 3.0.0"
       ],
       [
         "hostsfile",
@@ -508,7 +507,7 @@
           "~> 2.6"
         ]
       ],
-      "iptables (3.0.0)": [
+      "iptables (3.0.1)": [
         [
           "compat_resource",
           ">= 12.14.3"
@@ -517,7 +516,7 @@
       "compat_resource (12.14.7)": [
 
       ],
-      "cron (2.0.0)": [
+      "cron (3.0.0)": [
 
       ],
       "hostsfile (2.4.5)": [

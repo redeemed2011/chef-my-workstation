@@ -28,23 +28,22 @@ apt_repository 'enpass' do
   key 'http://repo.sinew.in/keys/enpass-linux.key'
 end
 
-apt_repository 'sublime-text-3' do
-  uri 'ppa:webupd8team/sublime-text-3'
-  distribution node['lsb']['codename']
-end
-
-apt_repository 'atom' do
-  uri 'ppa:webupd8team/atom'
-  distribution node['lsb']['codename']
-end
-
 apt_repository 'y-ppa-manager' do
   uri 'ppa:webupd8team/y-ppa-manager'
   distribution node['lsb']['codename']
 end
 
-# Is chef running in a baremetal system?
-if ( node.virtualization.system == 'host' ) then
+
+apt_repository 'syncthing' do
+  uri 'http://apt.syncthing.net/'
+  distribution 'syncthing'
+  components %w(release)
+  key 'https://syncthing.net/release-key.txt'
+  trusted true
+end
+
+# # Is chef running in a baremetal system?
+# if ( node.virtualization.system == 'host' ) then
   apt_repository 'virtualbox' do
     uri 'http://download.virtualbox.org/virtualbox/debian'
     distribution node['lsb']['codename']
@@ -70,7 +69,7 @@ if ( node.virtualization.system == 'host' ) then
     uri 'ppa:graphics-drivers/ppa'
     distribution node['lsb']['codename']
   end
-end
+# end
 
 # Some of these themes are not working in Gnome 3.20 at the time of this writing, so not using this ppa.
 apt_repository 'horst3180' do
@@ -143,12 +142,11 @@ end
 # * screencloud: screenshot util. UPDATE: July 2016: this package is failing to install.
 %w(
   vibrancy-colors antu-universal-icons
-  atom
   dconf-editor
   enpass
+  syncthing
   pinta
   gksu
-  sublime-text-installer
   vertex-icons gtk2-engines-pixbuf libgtk-3-dev autoconf automake gnome-themes-standard
   vlc browser-plugin-vlc
   wmctrl
@@ -248,18 +246,36 @@ dpkg_package 'google-chrome' do
 end
 
 #-----------------------------------------------------------------------------------------------------------------------
-# GitKraken - Git GUI.
+# Syncthing
 
-remote_file '/tmp/gitkraken.deb' do
-  source 'https://release.gitkraken.com/linux/gitkraken-amd64.deb'
-  not_if 'dpkg -s gitkraken'
+directory "#{ENV['HOME']}/syncthing/shares/" do
+  owner CURRENT_USER
+  group CURRENT_USER
+  recursive true
+  action :create
 end
 
-dpkg_package 'gitkraken' do
-  source '/tmp/gitkraken.deb'
-  not_if 'dpkg -s gitkraken'
-  action :install
+tarball "#{ENV['HOME']}/syncthing/installer.tar.gz" do
+  destination "#{ENV['HOME']}/syncthing/"
+  owner CURRENT_USER
+  group CURRENT_USER
+  # extract_list %W( * )
+  # umask 022 # Will be applied to perms in archive
+  action :extract
 end
+
+cookbook_file '/usr/share/applications/syncthing.desktop' do
+  source 'applications/syncthing.desktop'
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
+
+service 'syncthing' do
+  supports status: true, restart: true, reload: true
+  action :enable
+end
+
 
 # #-----------------------------------------------------------------------------------------------------------------------
 # # Vertex Theme
@@ -577,63 +593,6 @@ end
     action :delete
     path fname
   end
-end
-
-#-----------------------------------------------------------------------------------------------------------------------
-# BTSync
-
-directory "#{ENV['HOME']}/btsync/shares/" do
-  owner CURRENT_USER
-  group CURRENT_USER
-  recursive true
-  action :create
-end
-
-# Attempt to download the latest BTSync.
-remote_file "#{ENV['HOME']}/btsync/installer.tar.gz" do
-  owner CURRENT_USER
-  group CURRENT_USER
-  source 'https://download-cdn.resilio.com/stable/linux-x64/resilio-sync_x64.tar.gz'
-  # checksum 'sha256checksum'
-end
-
-# If the download fails, fall back to the included installer.
-cookbook_file "#{ENV['HOME']}/btsync/installer.tar.gz" do
-  source 'files/BitTorrent-Sync_x64.tar.gz'
-  owner CURRENT_USER
-  group CURRENT_USER
-  mode '0644'
-  not_if "test -e '#{ENV['HOME']}/btsync/installer.tar.gz'"
-end
-
-tarball "#{ENV['HOME']}/btsync/installer.tar.gz" do
-  destination "#{ENV['HOME']}/btsync/"
-  owner CURRENT_USER
-  group CURRENT_USER
-  # extract_list %W( * )
-  # umask 022 # Will be applied to perms in archive
-  action :extract
-end
-
-cookbook_file '/usr/share/applications/btsync.desktop' do
-  source 'applications/btsync.desktop'
-  owner 'root'
-  group 'root'
-  mode '0644'
-end
-
-directory "#{ENV['HOME']}/.config/autostart/" do
-  owner CURRENT_USER
-  group CURRENT_USER
-  recursive true
-  action :create
-end
-
-template "#{ENV['HOME']}/.config/autostart/btsync.desktop" do
-  source '.config/autostart/btsync.desktop.erb'
-  owner CURRENT_USER
-  group CURRENT_USER
-  mode '0664'
 end
 
 #-----------------------------------------------------------------------------------------------------------------------

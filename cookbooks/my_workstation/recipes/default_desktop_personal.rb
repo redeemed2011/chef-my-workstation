@@ -69,6 +69,79 @@ if ( node.virtualization.system == 'host' ) then
 end
 
 #-----------------------------------------------------------------------------------------------------------------------
+# GitKraken - Git GUI. 
+# NOTE: Free edition cannot be used for businesses.
+
+remote_file '/tmp/gitkraken.deb' do
+  source 'https://release.gitkraken.com/linux/gitkraken-amd64.deb'
+  not_if 'dpkg -s gitkraken'
+end
+
+dpkg_package 'gitkraken' do
+  source '/tmp/gitkraken.deb'
+  not_if 'dpkg -s gitkraken'
+  action :install
+end
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Resilio Sync (formerly BTSync)
+# NOTE: Free edition cannot be used for businesses.
+
+directory "#{ENV['HOME']}/resilio-sync/shares/" do
+  owner CURRENT_USER
+  group CURRENT_USER
+  recursive true
+  action :create
+end
+
+# Attempt to download the latest resilio-sync.
+remote_file "#{ENV['HOME']}/resilio-sync/installer.tar.gz" do
+  owner CURRENT_USER
+  group CURRENT_USER
+  source 'https://download-cdn.resilio.com/stable/linux-x64/resilio-sync_x64.tar.gz'
+  # checksum 'sha256checksum'
+end
+
+# If the download fails, fall back to the included installer.
+cookbook_file "#{ENV['HOME']}/resilio-sync/installer.tar.gz" do
+  source 'files/resilio-sync_x64.tar.gz'
+  owner CURRENT_USER
+  group CURRENT_USER
+  mode '0644'
+  not_if "test -e '#{ENV['HOME']}/resilio-sync/installer.tar.gz'"
+end
+
+tarball "#{ENV['HOME']}/resilio-sync/installer.tar.gz" do
+  destination "#{ENV['HOME']}/resilio-sync/"
+  owner CURRENT_USER
+  group CURRENT_USER
+  # extract_list %W( * )
+  # umask 022 # Will be applied to perms in archive
+  action :extract
+end
+
+cookbook_file '/usr/share/applications/resilio-sync.desktop' do
+  source 'applications/resilio-sync.desktop'
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
+
+directory "#{ENV['HOME']}/.config/autostart/" do
+  owner CURRENT_USER
+  group CURRENT_USER
+  recursive true
+  action :create
+end
+
+template "#{ENV['HOME']}/.config/autostart/resilio-sync.desktop" do
+  source '.config/autostart/resilio-sync.desktop.erb'
+  owner CURRENT_USER
+  group CURRENT_USER
+  mode '0664'
+end
+
+#-----------------------------------------------------------------------------------------------------------------------
 # Steam Hi-DPI Theme
 
 %W(

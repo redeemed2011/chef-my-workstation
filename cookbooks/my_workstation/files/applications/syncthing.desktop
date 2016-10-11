@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Syncthing
+Exec=/usr/bin/sensible-browser http://127.0.0.1:8384/
+Icon=google-chrome
