@@ -5,6 +5,10 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 #-----------------------------------------------------------------------------------------------------------------------
+# Sugars
+include_recipe 'chef-sugar::default'
+
+#-----------------------------------------------------------------------------------------------------------------------
 # Config
 
 CURRENT_USER = ENV['SUDO_USER'].nil? ? ENV['USER'] : ENV['SUDO_USER']
@@ -30,7 +34,7 @@ end
 
 apt_repository 'y-ppa-manager' do
   uri 'ppa:webupd8team/y-ppa-manager'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
 end
 
 
@@ -43,10 +47,10 @@ apt_repository 'syncthing' do
 end
 
 # Is chef running in a baremetal system?
-if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' ) then
+if node.deep_fetch(:virtualization, :system) == 'host' || node.deep_fetch(:virtualization, :role) == 'host' || node.deep_fetch(:hostnamectl, :virtualization) == 'host' then
   apt_repository 'virtualbox' do
     uri 'http://download.virtualbox.org/virtualbox/debian'
-    distribution node['lsb']['codename']
+    distribution node.deep_fetch(:lsb, :codename)
     components %w(contrib non-free)
     key 'http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc'
     trusted true
@@ -54,20 +58,20 @@ if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' 
 
   apt_repository 'open-source-graphics-drivers' do
     uri 'ppa:oibaf/graphics-drivers'
-    distribution node['lsb']['codename']
+    distribution node.deep_fetch(:lsb, :codename)
     key 'http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x957D2708A03A4626'
   end
 
   apt_repository 'ubuntu-wine' do
     uri 'ppa:ubuntu-wine/ppa'
-    distribution node['lsb']['codename']
+    distribution node.deep_fetch(:lsb, :codename)
     components %w(main)
   end
 
   # NVidia 364 on this repo was unstable. 361 (current at the time of this writing) was older than Canonical's repo.
   apt_repository 'graphics-drivers' do
     uri 'ppa:graphics-drivers/ppa'
-    distribution node['lsb']['codename']
+    distribution node.deep_fetch(:lsb, :codename)
   end
 end
 
@@ -82,17 +86,17 @@ end
 
 apt_repository 'noobslab-apps' do
   uri 'ppa:noobslab/apps'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
 end
 
 apt_repository 'noobslab-icons' do
   uri 'ppa:noobslab/icons'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
 end
 
 apt_repository 'noobslab-icons2' do
   uri 'ppa:noobslab/icons2'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
 end
 
 # July 2016: this package is failing to install.
@@ -106,7 +110,7 @@ end
 # Vibrancy colors icons.
 apt_repository 'ravefinity-project' do
   uri 'ppa:ravefinity-project/ppa'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
   components %w(main)
 end
 
@@ -162,7 +166,7 @@ end
 end
 
 # Is chef running in a baremetal system?
-if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' ) then
+if node.deep_fetch(:virtualization, :system) == 'host' || node.deep_fetch(:virtualization, :role) == 'host' || node.deep_fetch(:hostnamectl, :virtualization) == 'host' then
   %w(
     mesa-va-drivers mesa-vdpau-drivers xserver-xorg-video-nouveau
     nvidia-367 nvidia-prime prime-indicator
@@ -185,7 +189,7 @@ end
 group 'vboxusers' do
   action :create
   members %W(#{CURRENT_USER})
-  not_if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' )
+  not_if node.deep_fetch(:virtualization, :system) == 'host' || node.deep_fetch(:virtualization, :role) == 'host' || node.deep_fetch(:hostnamectl, :virtualization) == 'host'
 end
 
 # Disable copy-on-write on folders that have VMs.
@@ -206,7 +210,7 @@ end
   end
 end
 
-if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' ) then
+if node.deep_fetch(:virtualization, :system) == 'host' || node.deep_fetch(:virtualization, :role) == 'host' || node.deep_fetch(:hostnamectl, :virtualization) == 'host' then
   %W(
     #{ENV['HOME']}/VirtualBox\ VMs
   ).each do |dir|

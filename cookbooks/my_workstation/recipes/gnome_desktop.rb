@@ -5,6 +5,10 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 #-----------------------------------------------------------------------------------------------------------------------
+# Sugars
+include_recipe 'chef-sugar::default'
+
+#-----------------------------------------------------------------------------------------------------------------------
 # Config
 
 CURRENT_USER = ENV['SUDO_USER'].nil? ? ENV['USER'] : ENV['SUDO_USER']
@@ -16,20 +20,20 @@ node.default['authorization']['sudo']['users'] = %W(#{CURRENT_USER})
 
 apt_repository 'gnome3' do
   uri 'ppa:gnome3-team/gnome3'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
   components ['main']
 end
 
 apt_repository 'gnome3-staging' do
   uri 'ppa:gnome3-team/gnome3-staging'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
   components ['main']
 end
 
 # Have not used this ppa in many years. This chef code may be wrong (space in name).
 # apt_repository 'gnome ricotz/testing' do
 #   uri 'ppa:ricotz/testing'
-#   distribution node['lsb']['codename']
+#   distribution node.deep_fetch(:lsb, :codename)
 #   components ['main']
 # end
 

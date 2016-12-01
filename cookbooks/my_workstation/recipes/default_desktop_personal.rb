@@ -5,6 +5,10 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 #-----------------------------------------------------------------------------------------------------------------------
+# Sugars
+include_recipe 'chef-sugar::default'
+
+#-----------------------------------------------------------------------------------------------------------------------
 # Config
 
 CURRENT_USER = ENV['SUDO_USER'].nil? ? ENV['USER'] : ENV['SUDO_USER']
@@ -21,16 +25,16 @@ node.default['authorization']['sudo']['users'] = %W(#{CURRENT_USER})
 
 apt_repository 'insync' do
   uri 'http://apt.insynchq.com/ubuntu'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
   components %w(non-free contrib)
   key 'https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key'
 end
 
 apt_repository 'ubuntu-wine' do
   uri 'ppa:ubuntu-wine/ppa'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
   components %w(main)
-  not_if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' )
+  not_if node.deep_fetch(:virtualization, :system) == 'host' || node.deep_fetch(:virtualization, :role) == 'host' || node.deep_fetch(:hostnamectl, :virtualization) == 'host'
 end
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -58,7 +62,7 @@ end
 end
 
 # Is chef running in a baremetal system?
-if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' ) then
+if node.deep_fetch(:virtualization, :system) == 'host' || node.deep_fetch(:virtualization, :role) == 'host' || node.deep_fetch(:hostnamectl, :virtualization) == 'host' then
   %w(
     playonlinux wine winetricks
   ).each do |pkg|
@@ -69,7 +73,7 @@ if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' 
 end
 
 #-----------------------------------------------------------------------------------------------------------------------
-# GitKraken - Git GUI. 
+# GitKraken - Git GUI.
 # NOTE: Free edition cannot be used for businesses.
 
 remote_file '/tmp/gitkraken.deb' do
@@ -179,5 +183,5 @@ bash 'disable touchpad when external mouse is present' do
   code <<-EOH
     gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled-on-external-mouse
   EOH
-  not_if ( node.virtualization.system == 'host' || node.virtualization.role == 'host' || node.hostnamectl.virtualization == 'host' )
+  not_if node.deep_fetch(:virtualization, :system) == 'host' || node.deep_fetch(:virtualization, :role) == 'host' || node.deep_fetch(:hostnamectl, :virtualization) == 'host'
 end

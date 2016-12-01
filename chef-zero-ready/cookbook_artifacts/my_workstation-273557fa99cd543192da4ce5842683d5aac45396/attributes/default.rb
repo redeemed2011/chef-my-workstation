@@ -247,14 +247,14 @@ default['poise-python']['options']['pip_version'] = true
 # Ruby.
 
 default['rbenv'].tap do |rbenv|
-  # Install Ruby 2.3.0 and make it the default.
+  # Install Ruby 2.3.1 and make it the default.
   rbenv['rubies'] = [
-    '2.3.0'
+    '2.3.1'
   ]
 
   rbenv['gems'] = {
-    '2.3.0' => [
-      { 'name'    => 'rubocop' }
+    '2.3.1' => [
+      { 'name' => 'rubocop' }
     ]
   }
 end

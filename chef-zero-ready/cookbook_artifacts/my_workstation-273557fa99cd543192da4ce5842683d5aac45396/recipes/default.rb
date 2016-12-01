@@ -5,6 +5,10 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 #-----------------------------------------------------------------------------------------------------------------------
+# Sugars
+include_recipe 'chef-sugar::default'
+
+#-----------------------------------------------------------------------------------------------------------------------
 # Config
 
 CURRENT_USER = ENV['SUDO_USER'].nil? ? ENV['USER'] : ENV['SUDO_USER']
@@ -55,12 +59,12 @@ end
 
 # apt_repository 'apt-fast' do
 #   uri 'ppa:saiarcot895/myppa'
-#   distribution node['lsb']['codename']
+#   distribution node.deep_fetch(:lsb, :codename)
 # end
 
 apt_repository 'git-core' do
   uri 'ppa:git-core/ppa'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
   components ['main']
 end
 
@@ -72,12 +76,12 @@ end
 # packages are updated to their latest version.
 apt_repository 'webupd8' do
   uri 'ppa:nilarimogard/webupd8'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
 end
 
 apt_repository 'ubuntu-make' do
   uri 'ppa:ubuntu-desktop/ubuntu-make'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
 end
 
 #-----------------------------------------------------------------------------------------------------------------------

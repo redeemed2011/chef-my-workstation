@@ -5,6 +5,10 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 #-----------------------------------------------------------------------------------------------------------------------
+# Sugars
+include_recipe 'chef-sugar::default'
+
+#-----------------------------------------------------------------------------------------------------------------------
 # Config
 
 CURRENT_USER = ENV['SUDO_USER'].nil? ? ENV['USER'] : ENV['SUDO_USER']
@@ -14,7 +18,7 @@ CURRENT_USER = ENV['SUDO_USER'].nil? ? ENV['USER'] : ENV['SUDO_USER']
 
 apt_repository 'nemo' do
   uri 'ppa:webupd8team/nemo'
-  distribution node['lsb']['codename']
+  distribution node.deep_fetch(:lsb, :codename)
 end
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -101,6 +105,6 @@ end
 
 # apt_repository 'nemo' do
 #   uri 'ppa:webupd8team/nemo'
-#   distribution node['lsb']['codename']
+#   distribution node.deep_fetch(:lsb, :codename)
 #   action :remove
 # end

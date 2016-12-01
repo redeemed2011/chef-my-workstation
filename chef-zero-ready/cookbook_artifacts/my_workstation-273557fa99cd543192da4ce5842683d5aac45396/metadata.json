@@ -10,6 +10,7 @@
     "ubuntu": ">= 0.0.0"
   },
   "dependencies": {
+    "chef-sugar": ">= 0.0.0",
     "apt": ">= 0.0.0",
     "docker": "~> 2.0",
     "ntp": ">= 0.0.0",
@@ -20,7 +21,7 @@
     "sudo": ">= 0.0.0",
     "system": ">= 0.0.0",
     "tarball": ">= 0.0.0",
-    "vagrant": "~> 0.5.0"
+    "vagrant": "~> 0.6.0"
   },
   "recommendations": {
 

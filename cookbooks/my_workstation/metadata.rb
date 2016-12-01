@@ -10,6 +10,9 @@ version '0.1.0'
   supports platform
 end
 
+# cookbook 'chef-sugar'
+depends 'chef-sugar'
+
 depends 'apt'
 depends 'docker', '~> 2.0'
 depends 'ntp'
@@ -20,4 +23,4 @@ depends 'ruby_rbenv', '~> 1.1.0'
 depends 'sudo'
 depends 'system'
 depends 'tarball'
-depends 'vagrant', '~> 0.5.0'
+depends 'vagrant', '~> 0.6.0'

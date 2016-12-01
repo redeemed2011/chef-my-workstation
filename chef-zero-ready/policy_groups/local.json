@@ -1,7 +1,7 @@
 {
   "policies": {
     "chef-my_workstation": {
-      "revision_id": "9f6a372df7196d6ce63cf6ea86c27fe2cb6ead56d1021ea2cec2f7e511d2df65"
+      "revision_id": "defd5bf4a6ec6246fae33d4ac572651bcfc4db8caad1e371f5660a582ddc4248"
     }
   }
 }

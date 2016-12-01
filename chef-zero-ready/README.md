@@ -1,6 +1,6 @@
 # Exported Chef Repository for Policy 'chef-my_workstation'
 
-Policy revision: 9f6a372df7196d6ce63cf6ea86c27fe2cb6ead56d1021ea2cec2f7e511d2df65
+Policy revision: defd5bf4a6ec6246fae33d4ac572651bcfc4db8caad1e371f5660a582ddc4248
 
 This directory contains all the cookbooks and configuration necessary for Chef
 to converge a system using this exported policy. To converge a system with the
