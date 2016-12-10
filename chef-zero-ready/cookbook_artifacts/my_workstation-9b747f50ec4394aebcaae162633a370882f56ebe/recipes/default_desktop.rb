@@ -84,6 +84,8 @@ apt_repository 'horst3180' do
   trusted true
 end
 
+# Allows installation of apps like:
+# * xdman-downloader
 apt_repository 'noobslab-apps' do
   uri 'ppa:noobslab/apps'
   distribution node.deep_fetch(:lsb, :codename)
@@ -157,6 +159,7 @@ end
   synaptic
   y-ppa-manager
   arc-theme ceti-2-theme vertex-theme arc-icons
+  xdman-downloader
 ).each do |pkg|
   # screencloud  # UPDATE: July 2016: this package is failing to install.
   # apt-fast

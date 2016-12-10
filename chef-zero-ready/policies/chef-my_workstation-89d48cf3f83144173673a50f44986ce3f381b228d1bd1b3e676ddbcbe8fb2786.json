@@ -1,5 +1,5 @@
 {
-  "revision_id": "defd5bf4a6ec6246fae33d4ac572651bcfc4db8caad1e371f5660a582ddc4248",
+  "revision_id": "89d48cf3f83144173673a50f44986ce3f381b228d1bd1b3e676ddbcbe8fb2786",
   "name": "chef-my_workstation",
   "run_list": [
     "recipe[my_workstation::default]",
@@ -36,14 +36,14 @@
   "cookbook_locks": {
     "my_workstation": {
       "version": "0.1.0",
-      "identifier": "273557fa99cd543192da4ce5842683d5aac45396",
-      "dotted_decimal_identifier": "11036176074526036.13953740149457958.144953716265878",
+      "identifier": "9b747f50ec4394aebcaae162633a370882f56ebe",
+      "dotted_decimal_identifier": "43756711557481364.49184088059437882.60509696388798",
       "source": "cookbooks/my_workstation",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:redeemed2011/chef-my-workstation.git",
-        "revision": "0342711bb1cff331d08da9cc530be2664b7151d1",
+        "revision": "41a1506abd4ca3354ae26d5d4f4c2e207788a68b",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [
@@ -211,14 +211,14 @@
       }
     },
     "poise-languages": {
-      "version": "2.0.3",
-      "identifier": "766309280fe7758c3131e7b3d1151064d8a8a4d3",
-      "dotted_decimal_identifier": "33322938229843829.39460587149971733.18025317704915",
-      "cache_key": "poise-languages-2.0.3-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-languages/versions/2.0.3/download",
+      "version": "2.0.4",
+      "identifier": "1487642528cd481193d06b297c50589c5b0ae7d4",
+      "dotted_decimal_identifier": "5778363724123464.4947597964442704.97428565583828",
+      "cache_key": "poise-languages-2.0.4-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-languages/versions/2.0.4/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-languages/versions/2.0.3/download",
-        "version": "2.0.3"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/poise-languages/versions/2.0.4/download",
+        "version": "2.0.4"
       }
     },
     "dmg": {
@@ -380,7 +380,7 @@
       ],
       [
         "poise-languages",
-        "= 2.0.3"
+        "= 2.0.4"
       ],
       [
         "dmg",
@@ -551,7 +551,7 @@
       "poise (2.7.1)": [
 
       ],
-      "poise-languages (2.0.3)": [
+      "poise-languages (2.0.4)": [
         [
           "poise",
           "~> 2.5"
