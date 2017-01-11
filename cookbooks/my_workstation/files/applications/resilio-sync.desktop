@@ -4,5 +4,5 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Resilio Sync
-Exec=/usr/bin/sensible-browser http://localhost:8888
+Exec=/usr/bin/xdg-open http://localhost:8888
 Icon=google-chrome

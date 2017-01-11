@@ -4,6 +4,9 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
+# UBUNTU ONLY!
+return unless platform_family?('debian') 
+
 #-----------------------------------------------------------------------------------------------------------------------
 # Sugars
 include_recipe 'chef-sugar::default'

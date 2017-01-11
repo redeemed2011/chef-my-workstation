@@ -6,14 +6,14 @@ description 'Installs/Configures my_workstation'
 long_description 'Installs/Configures my_workstation'
 version '0.1.0'
 
-%w(debian ubuntu).each do |platform|
+%w(debian ubuntu fedora).each do |platform|
   supports platform
 end
 
 # cookbook 'chef-sugar'
 depends 'chef-sugar'
 
-depends 'apt'
+depends 'apt' unless platform_family?('debian')
 depends 'docker', '~> 2.0'
 depends 'ntp'
 depends 'openssh', '~> 2.0.0'
