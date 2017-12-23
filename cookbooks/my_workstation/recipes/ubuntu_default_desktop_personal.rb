@@ -5,7 +5,7 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 # UBUNTU ONLY!
-return unless platform_family?('debian') 
+return unless platform?('debian') 
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Sugars

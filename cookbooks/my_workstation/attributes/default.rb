@@ -100,7 +100,7 @@ default['openssh']['client'].tap do |client|
 
   # Workaround for CVE-2016-0777 and CVE-2016-0778.
   # Older versions of RHEL should not receive this directive
-  client['use_roaming'] = 'no' unless node['platform_family'] == 'rhel' && node['platform_version'].to_i < 7
+  client['use_roaming'] = 'no' unless platform == 'rhel' && node['platform_version'].to_i < 7
   # client['forward_agent'] = 'no'
   # client['forward_x11'] = 'no'
   client['rhosts_rsa_authentication'] = 'no'

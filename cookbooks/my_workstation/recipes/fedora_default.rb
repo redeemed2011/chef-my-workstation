@@ -5,7 +5,7 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 # FEDORA ONLY!
-return unless platform_family?('fedora') 
+return unless platform?('fedora') 
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Sugars

@@ -190,7 +190,7 @@ RETVAL=$?
 set -e
 if [ ${RETVAL} -ne 0 ]; then
   # Install chef-client using Omnibus.
-  wget -O- https://www.opscode.com/chef/install.sh | sudo bash -s
+  wget -O- https://www.opscode.com/chef/install.sh | sudo bash -s -- -v 12.21.31
 fi
 
 cd chef-zero-ready

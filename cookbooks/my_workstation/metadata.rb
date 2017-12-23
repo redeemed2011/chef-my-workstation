@@ -13,7 +13,7 @@ end
 # cookbook 'chef-sugar'
 depends 'chef-sugar'
 
-depends 'apt' unless platform_family?('debian')
+depends 'apt' unless platform?('debian')
 depends 'docker', '~> 2.0'
 depends 'ntp'
 depends 'openssh', '~> 2.0.0'

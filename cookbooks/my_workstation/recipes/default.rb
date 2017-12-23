@@ -42,7 +42,7 @@ unless cmd.exitstatus == 0 && File.exist?('/usr/local/bin/pip')
   include_recipe 'poise-python::default'
 end
 
-case platform_family
+case platform
 when 'debian'
   include_recipe 'ubuntu_default'
 when 'fedora'

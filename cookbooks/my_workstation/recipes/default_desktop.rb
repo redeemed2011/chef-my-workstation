@@ -19,7 +19,7 @@ node.default['authorization']['sudo']['users'] = %W(#{CURRENT_USER})
 # Run Recipes
 
 # Ubuntu specific.
-include_recipe 'ubuntu_default_desktop' unless platform_family?('debian')
+include_recipe 'ubuntu_default_desktop' unless platform?('debian')
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Manage General Packages
