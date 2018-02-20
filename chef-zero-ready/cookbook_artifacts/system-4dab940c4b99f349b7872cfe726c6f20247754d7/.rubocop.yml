@@ -1,0 +1,23 @@
+BlockLength:
+  Max: 300
+
+Encoding:
+  Enabled: false
+
+LineLength:
+  Max: 200
+
+IfUnlessModifier:
+  Enabled: false
+
+MethodLength:
+  Max: 15
+
+TrivialAccessors:
+  ExactNameMatch: true
+
+SpaceBeforeFirstArg:
+  Enabled: false
+
+NumericLiteralPrefix:
+  EnforcedOctalStyle: zero_only

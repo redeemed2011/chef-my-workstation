@@ -12,14 +12,11 @@ end
 
 # cookbook 'chef-sugar'
 depends 'chef-sugar'
-
-depends 'apt' unless platform?('debian')
+depends 'apt'
 depends 'docker', '~> 2.0'
 depends 'ntp'
 depends 'openssh', '~> 2.0.0'
 depends 'poise-python', '~> 1.5.1'
-depends 'ruby_build', '~> 1.0.0'
-depends 'ruby_rbenv', '~> 1.1.0'
 depends 'sudo'
 depends 'system'
 depends 'tarball'

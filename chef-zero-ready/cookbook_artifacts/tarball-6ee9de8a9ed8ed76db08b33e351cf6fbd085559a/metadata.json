@@ -1,0 +1,38 @@
+{
+  "name": "tarball",
+  "description": "tar resource provider",
+  "long_description": "tarball\n=======\n\nDescription: tar file extraction resource provider.\n\n[![Build Status](https://travis-ci.org/ooyala/tarball-chef-cookbook.svg?branch=master)](https://travis-ci.org/ooyala/tarball-chef-cookbook)\n\n[Source on GitHub](https://github.com/ooyala/tarball-chef-cookbook)\n\nFeatures\n--------\n* Does not rely on system tar (ruby only!)\n* Automatically handles gzipped archives\n* Can change mode/ownership\n* Can select specific files only\n* Can handle:\n  * regular files\n  * directories\n  * symbolic links\n  * hard links (provided the source file already exists; otherwise the\n    hard link creation is skipped)\n\nSupported tar formats\n---------------------\n* POSIX\n* Some GNU tar extensions (LONGNAME, LONGLINK)\n* Other tar formats will probably extract files without issue, but some\n  metadata may not be handled as expected.  If needed, please give a\n  sample tar file and the tar program, version, and OS used to create\n  archive, if possible, when requesting support.\n\nLimitations\n-----------\n* Ignores FIFOs, block devices, etc.\n* Compressions other than zlib/gzip not currently supported\n* May or may not correctly handle non-standard blocksizes\n\nRecipes\n-------\n* default.rb - to pull in resource provider for use in other cookbooks\n* test.rb - recipe to use for testing only\n\nUsage\n-----\n```\ninclude_recipe 'tarball::default'\n\n# Fetch the tarball if it's not a local file\nremote_file '/tmp/some_archive.tgz' do\n  source 'http://example.com/some_archive.tgz'\nend\n\n# I can also use tarball_x \"file\" do ...\ntarball '/tmp/some_archive.tgz' do\n  destination '/opt/my_app_path'\t# Will be created if missing\n  owner 'root'\n  group 'root'\n  extract_list [ '*.conf' ]\n  umask 002\t\t\t\t# Will be applied to perms in archive\n  action :extract\nend\n```\n\nIt will throw exceptions derived form StandardError in most cases\n(permissions errors, etc.), so you may want to wrap the block in a\nbegin/rescue.\n\n```\nbegin\n  tarball '/tarball_path.tgz/' do\n    ...\n  end\nrescue StandardError => e\n  log e.message\n  ...\nend\n```\n",
+  "maintainer": "Ooyala",
+  "maintainer_email": "availability@ooyala.com",
+  "license": "All rights reserved",
+  "platforms": {
+    "linux": ">= 0.0.0"
+  },
+  "dependencies": {
+
+  },
+  "providing": {
+    "tarball": ">= 0.0.0",
+    "tarball::test": ">= 0.0.0"
+  },
+  "attributes": {
+
+  },
+  "recipes": {
+    "tarball": "",
+    "tarball::test": ""
+  },
+  "version": "0.0.1",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

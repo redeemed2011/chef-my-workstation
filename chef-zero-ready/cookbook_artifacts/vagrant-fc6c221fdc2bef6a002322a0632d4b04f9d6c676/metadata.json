@@ -17,15 +17,6 @@
     "dmg": ">= 2.2.2",
     "windows": "~> 1.38"
   },
-  "recommendations": {
-
-  },
-  "suggestions": {
-
-  },
-  "conflicting": {
-
-  },
   "providing": {
     "vagrant::debian": ">= 0.0.0",
     "vagrant": ">= 0.0.0",
@@ -37,13 +28,7 @@
     "vagrant::uninstall_gem": ">= 0.0.0",
     "vagrant::windows": ">= 0.0.0"
   },
-  "replacing": {
-
-  },
   "attributes": {
-
-  },
-  "groupings": {
 
   },
   "recipes": {
